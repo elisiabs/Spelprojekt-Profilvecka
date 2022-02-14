@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D Collision)
+    private void OnTriggerEnter2D(Collision2D Collision)
     {
         if(Collision.gameObject.tag == "Platform")
         {
