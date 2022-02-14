@@ -8,6 +8,12 @@ public class PlayerMovement : MonoBehaviour
     
     public float jumpHeight;
     public int timesJumped;
+    public int movementSpeed;
+
+
+    public float moveSmooth;
+    float move;
+    Vector3 m_Velocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +24,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timesJumped < 1)
+        move = 0;
+        Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            move = 10;
+            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            move = -10;
+            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+        }
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
+
+
+        if (timesJumped < 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
