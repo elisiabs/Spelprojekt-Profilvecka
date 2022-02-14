@@ -26,7 +26,7 @@ public class ShooterScript : MonoBehaviour
         AimShooter();
         PlayerInput();
 
-        cooldown = cooldown - (70 * Time.deltaTime);
+        cooldown = cooldown - (85 * Time.deltaTime);
 
         cooldownTimer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, cooldown);
     }
