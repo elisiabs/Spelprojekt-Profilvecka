@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 253254770}
   - component: {fileID: 253254771}
   - component: {fileID: 253254766}
-  - component: {fileID: 253254769}
+  - component: {fileID: 253254768}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -318,7 +318,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &253254769
+--- !u!114 &253254768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,9 +327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 253254765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa1b6034093e6741bf910f245ec9a18, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a6aee6ebc3bb9419daf57b294548f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 0
+  timesJumped: 0
 --- !u!50 &253254770
 Rigidbody2D:
   serializedVersion: 4
@@ -473,6 +475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldPosition: {x: 0, y: 0, z: 0}
+  bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
+  angle: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
