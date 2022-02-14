@@ -7,9 +7,12 @@ public class ShooterScript : MonoBehaviour
     public Vector3 worldPosition;
     public GameObject bullet;
     public GameObject bulletSpawn;
+    public RectTransform cooldownTimer;
 
     public float angle;
     public float bulletVelocity;
+
+    public float cooldown = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,10 @@ public class ShooterScript : MonoBehaviour
     {
         AimShooter();
         PlayerInput();
+
+        cooldown = cooldown - (70 * Time.deltaTime);
+
+        cooldownTimer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, cooldown);
     }
 
     public void AimShooter()
@@ -34,10 +41,11 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && cooldown <= 0)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
+            cooldown = 75;
         }
     }
 }

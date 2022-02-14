@@ -7,17 +7,24 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(DestroyBulletAfterTime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        Destroy(gameObject);
+    }
+
+    IEnumerator DestroyBulletAfterTime()
+    {
+        Debug.Log("lol");
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
