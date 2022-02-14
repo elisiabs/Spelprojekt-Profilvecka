@@ -35,7 +35,13 @@ public class ShooterScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Left button");
-            Instantiate(bullet, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+
+
+            Vector3 start = transform.position;
+            start += transform.forward.normalized * 10;
+
+            GameObject obj = (GameObject)Instantiate(bullet, start, Quaternion.AngleAxis(angle, Vector3.forward));
+            obj.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
         }
     }
 }

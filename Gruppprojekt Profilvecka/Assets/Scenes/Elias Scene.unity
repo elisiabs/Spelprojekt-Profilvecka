@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 253254771}
   - component: {fileID: 253254766}
   - component: {fileID: 253254768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,8 +330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6aee6ebc3bb9419daf57b294548f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 0
-  timesJumped: 0
+  jumpHeight: 600
+  timesJumped: -1000
+  movementSpeed: 1
+  moveSmooth: 0.2
 --- !u!50 &253254770
 Rigidbody2D:
   serializedVersion: 4
@@ -352,7 +354,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &253254771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,7 +392,7 @@ GameObject:
   - component: {fileID: 266098793}
   - component: {fileID: 266098794}
   - component: {fileID: 266098795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
