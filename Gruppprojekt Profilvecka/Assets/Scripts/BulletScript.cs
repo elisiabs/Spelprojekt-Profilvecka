@@ -23,7 +23,6 @@ public class BulletScript : MonoBehaviour
 
     IEnumerator DestroyBulletAfterTime()
     {
-        Debug.Log("lol");
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
