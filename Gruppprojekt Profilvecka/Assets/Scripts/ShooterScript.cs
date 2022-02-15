@@ -5,13 +5,14 @@ using UnityEngine;
 public class ShooterScript : MonoBehaviour
 {
     public GameObject player;
-    public Vector3 worldPosition;
     public GameObject pivotPoint;
     public GameObject bullet;
     public GameObject bulletSpawn;
     public RectTransform cooldownTimer;
+    public float recoilAmount;
+    Rigidbody2D playerRb;
 
-    public float angle;
+    private float angle;
     public float bulletVelocity;
     public float cooldownSpeed;
     float cooldown = 0;
@@ -19,7 +20,7 @@ public class ShooterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class ShooterScript : MonoBehaviour
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
             cooldown = 75;
-            //player.
+            playerRb.velocity = -transform.right * recoilAmount;
         }
     }
 }
