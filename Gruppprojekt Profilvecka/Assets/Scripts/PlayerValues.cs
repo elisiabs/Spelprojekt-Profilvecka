@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamageScript : MonoBehaviour
+public class PlayerValues : MonoBehaviour
 {
     public float health;
-    public float damage;
-
 
 
     // Start is called before the first frame update
@@ -19,10 +17,5 @@ public class EnemyDamageScript : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void doDamage()
-    {
-
     }
 }
