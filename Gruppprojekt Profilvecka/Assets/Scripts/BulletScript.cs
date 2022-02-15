@@ -11,12 +11,6 @@ public class BulletScript : MonoBehaviour
         StartCoroutine(DestroyBulletAfterTime(bulletDespawnTime));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         Destroy(gameObject);
