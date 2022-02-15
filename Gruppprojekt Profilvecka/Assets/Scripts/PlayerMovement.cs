@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     
     public int timesJumped;
-    public int movementSpeed;
     
+    public float movementSpeed;
     public float jumpHeight;
     public float moveSmooth;
     float move;
