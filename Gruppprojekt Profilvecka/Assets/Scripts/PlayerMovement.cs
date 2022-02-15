@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     
     public float jumpHeight;
     public int timesJumped;
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collision2D Collision)
+    private void OnCollisionEnter2D(Collision2D Collision)
     {
         if(Collision.gameObject.tag == "Platform")
         {
