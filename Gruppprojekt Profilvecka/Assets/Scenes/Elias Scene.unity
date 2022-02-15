@@ -494,9 +494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  jumpHeight: 600
   timesJumped: -1000
   movementSpeed: 1
+  jumpHeight: 600
   moveSmooth: 0.2
 --- !u!114 &253254769
 MonoBehaviour:
@@ -511,6 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  invincibilityTime: 1
+  invincible: 0
 --- !u!50 &253254770
 Rigidbody2D:
   serializedVersion: 4
