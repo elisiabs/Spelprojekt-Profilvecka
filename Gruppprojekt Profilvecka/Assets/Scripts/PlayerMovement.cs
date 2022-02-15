@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     
-    public float jumpHeight;
     public int timesJumped;
     public int movementSpeed;
-
-
+    
+    public float jumpHeight;
     public float moveSmooth;
     float move;
+    
     Vector3 m_Velocity = Vector3.zero;
 
     // Start is called before the first frame update
@@ -48,15 +48,17 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpHeight);
                 timesJumped++;
             }
+
         }
         
     }
 
-    private void OnCollisionEnter2D(Collision2D Collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
             timesJumped = 0;
         }
     }
+
 }
