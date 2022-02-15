@@ -42,15 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (timesJumped < 1)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpHeight);
                 timesJumped++;
             }
-
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
