@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6aee6ebc3bb9419daf57b294548f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   jumpHeight: 600
   timesJumped: -1000
   movementSpeed: 1
@@ -645,6 +646,7 @@ MonoBehaviour:
   bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
   bulletSpawn: {fileID: 63813593}
   cooldownTimer: {fileID: 1544806333}
+  recoilAmount: 7.5
   angle: 0
   bulletVelocity: 30
   cooldownSpeed: 85
