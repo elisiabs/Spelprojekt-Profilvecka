@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyDamageScript : MonoBehaviour
 {
+    public PlayerHealth player;
+   
     public float health;
     public float damage;
 
@@ -21,8 +23,11 @@ public class EnemyDamageScript : MonoBehaviour
         
     }
 
-    public void doDamage()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-
+        if(col.gameObject.tag == "Player")
+        {
+            player.damagePlayer(damage);
+        }
     }
 }
