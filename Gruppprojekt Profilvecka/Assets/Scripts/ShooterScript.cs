@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
+    public GameObject player;
     public Vector3 worldPosition;
+    public GameObject pivotPoint;
     public GameObject bullet;
     public GameObject bulletSpawn;
     public RectTransform cooldownTimer;
 
     public float angle;
     public float bulletVelocity;
-
-    public float cooldown = 0;
+    public float cooldownSpeed;
+    float cooldown = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class ShooterScript : MonoBehaviour
         AimShooter();
         PlayerInput();
 
-        cooldown = cooldown - (85 * Time.deltaTime);
+        cooldown = cooldown - (cooldownSpeed * Time.deltaTime);
 
         cooldownTimer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, cooldown);
     }
@@ -36,7 +38,7 @@ public class ShooterScript : MonoBehaviour
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void PlayerInput()
@@ -46,6 +48,7 @@ public class ShooterScript : MonoBehaviour
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
             cooldown = 75;
+            //player.
         }
     }
 }
