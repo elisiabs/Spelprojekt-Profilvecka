@@ -406,9 +406,10 @@ GameObject:
   - component: {fileID: 253254771}
   - component: {fileID: 253254766}
   - component: {fileID: 253254768}
+  - component: {fileID: 253254769}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,6 +498,19 @@ MonoBehaviour:
   timesJumped: -1000
   movementSpeed: 1
   moveSmooth: 0.2
+--- !u!114 &253254769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253254765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b179f16ae34141ab81f9c6b31fac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!50 &253254770
 Rigidbody2D:
   serializedVersion: 4
@@ -662,7 +676,7 @@ GameObject:
   - component: {fileID: 333936450}
   - component: {fileID: 333936454}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,6 +806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035be8e665c9a354bb3fe5af053d8e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 253254769}
+  health: 10
+  damage: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
