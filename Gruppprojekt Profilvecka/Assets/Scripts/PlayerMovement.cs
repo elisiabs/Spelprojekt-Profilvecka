@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public Animator animator;
-    
+    public Collider2D feetCollider;
+
     public int timesJumped;
     
     public float movementSpeed;
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
             timesJumped = 0;
         }
