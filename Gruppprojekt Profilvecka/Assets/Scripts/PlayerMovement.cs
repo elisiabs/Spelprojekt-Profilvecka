@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Collider2D feetCollider;
+    public Animator animator;
 
     public int timesJumped;
     
