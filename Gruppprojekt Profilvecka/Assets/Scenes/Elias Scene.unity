@@ -574,6 +574,9 @@ MonoBehaviour:
   rb: {fileID: 253254770}
   feetCollider: {fileID: 0}
   animator: {fileID: 253254772}
+  bodySprite: {fileID: 253254766}
+  leftLegSprite: {fileID: 648276080}
+  rightLegSprite: {fileID: 1214441626}
   timesJumped: -1000
   movementSpeed: 1.5
   jumpHeight: 700
@@ -627,8 +630,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027967788, y: -0.016861837}
-  m_Size: {x: 0.06568228, y: 0.28646213}
+  m_Offset: {x: -0.0052187503, y: -0.016861845}
+  m_Size: {x: 0.05408479, y: 0.28646213}
   m_Direction: 0
 --- !u!95 &253254772
 Animator:
