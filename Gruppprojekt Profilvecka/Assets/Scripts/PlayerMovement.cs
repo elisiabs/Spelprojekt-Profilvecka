@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator animator;
     
     public int timesJumped;
     
@@ -31,11 +32,17 @@ public class PlayerMovement : MonoBehaviour
         {
             move = 10;
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            animator.SetBool("Walk", true);
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             move = -10;
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
         }
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
 
