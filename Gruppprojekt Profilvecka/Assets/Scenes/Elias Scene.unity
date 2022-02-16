@@ -572,10 +572,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 253254770}
+  feetCollider: {fileID: 0}
   animator: {fileID: 253254772}
   timesJumped: -1000
-  movementSpeed: 1.6
-  jumpHeight: 900
+  movementSpeed: 1.5
+  jumpHeight: 700
   moveSmooth: 0.08
 --- !u!114 &253254769
 MonoBehaviour:
