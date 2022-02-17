@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShooterScript : MonoBehaviour
 {
@@ -8,14 +9,15 @@ public class ShooterScript : MonoBehaviour
     public GameObject pivotPoint;
     public GameObject bullet;
     public GameObject bulletSpawn;
-    public RectTransform cooldownTimer;
+    public Slider slider;
+    public GameObject backLightSprite;
     public float recoilAmount;
     Rigidbody2D playerRb;
 
     private float angle;
     public float bulletVelocity;
     public float cooldownSpeed;
-    float cooldown = 0;
+    float cooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +30,19 @@ public class ShooterScript : MonoBehaviour
     {
         AimShooter();
         PlayerInput();
+        
+        if(cooldown < 1)
+        {
+            cooldown = cooldown + (cooldownSpeed * Time.deltaTime);
+            backLightSprite.SetActive(false);
+        }
+        else
+        {
+            cooldown = 1;
+            backLightSprite.SetActive(true);
+        }
 
-        cooldown = cooldown - (cooldownSpeed * Time.deltaTime);
-
-        cooldownTimer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, cooldown);
+        slider.value = cooldown;
     }
 
     public void AimShooter()
@@ -39,16 +50,20 @@ public class ShooterScript : MonoBehaviour
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if(dir.magnitude > 12)
+        {
+            pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 
     public void PlayerInput()
     {
-        if (Input.GetMouseButtonDown(0) && cooldown <= 0)
+        if (Input.GetMouseButtonDown(0) && cooldown >= 1)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
-            cooldown = 75;
+            cooldown = 0;
             playerRb.velocity = -transform.right * recoilAmount;
         }
     }
