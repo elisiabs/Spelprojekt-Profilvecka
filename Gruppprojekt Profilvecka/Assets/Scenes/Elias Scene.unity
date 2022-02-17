@@ -1089,21 +1089,9 @@ PrefabInstance:
       propertyPath: cooldownTimer
       value: 
       objectReference: {fileID: 1544806333}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1148,10 +1136,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633860000198, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
