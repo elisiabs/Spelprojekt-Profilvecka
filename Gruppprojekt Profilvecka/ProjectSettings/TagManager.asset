@@ -13,9 +13,19 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - Player
+<<<<<<< HEAD
+  - Obstacle
+=======
+  - Obstacle
+  - 
+>>>>>>> Stashed changes
+  - 
+=======
   - PlayerProjectile
   - Enemy
+>>>>>>> 6abc7ec76d2926c71a8ec29a64d2593aa382dba6
   - 
   - 
   - 
