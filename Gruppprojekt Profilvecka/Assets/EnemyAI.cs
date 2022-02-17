@@ -1,4 +1,5 @@
 using System.Collections;
+<<<<<<< Updated upstream
 using UnityEngine;
 using Pathfinding;
 
@@ -121,3 +122,22 @@ public class EnemyAI : MonoBehaviour {
     }
 }   
 
+=======
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyAI : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+>>>>>>> Stashed changes
