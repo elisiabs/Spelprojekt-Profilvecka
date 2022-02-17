@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/elisia Title screen.unity
+    path: Assets/Scenes/Title screen.unity
     guid: 6d37a83d7001c2740a7706c21f65d654
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
