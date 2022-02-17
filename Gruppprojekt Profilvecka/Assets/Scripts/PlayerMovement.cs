@@ -5,14 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    
-    public float jumpHeight;
+    public Collider2D feetCollider;
+    public Animator animator;
+    public SpriteRenderer bodySprite;
+    public SpriteRenderer leftLegSprite;
+    public SpriteRenderer rightLegSprite;
+
     public int timesJumped;
-    public int movementSpeed;
-
-
+    
+    public float movementSpeed;
+    public float jumpHeight;
     public float moveSmooth;
     float move;
+    
     Vector3 m_Velocity = Vector3.zero;
 
     // Start is called before the first frame update
@@ -31,32 +36,44 @@ public class PlayerMovement : MonoBehaviour
         {
             move = 10;
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            animator.SetBool("Walk", true);
+            bodySprite.flipX = false;
+            leftLegSprite.flipX=false;
+            rightLegSprite.flipX=false;
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             move = -10;
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            animator.SetBool("Walk", true);
+            bodySprite.flipX = true;
+            leftLegSprite.flipX=true;
+            rightLegSprite.flipX=true;
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
         }
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
 
 
         if (timesJumped < 1)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpHeight);
                 timesJumped++;
             }
         }
-        
     }
 
-    private void OnCollisionEnter2D(Collision2D Collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
             timesJumped = 0;
         }
     }
+
 }

@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class EnemyDamageScript : MonoBehaviour
 {
+    public PlayerHealth player;
+   
     public float health;
     public float damage;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        
-    }
-
-    public void doDamage()
-    {
-
+        if(col.gameObject.tag == "Player")
+        {
+            player.damagePlayer(damage);
+        }
+        else if(col.gameObject.layer == 7)//7 is "PlayerProjectile".
+        {
+            health -= 1;
+        }
     }
 }

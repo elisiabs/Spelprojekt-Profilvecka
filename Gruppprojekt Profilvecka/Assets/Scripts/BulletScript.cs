@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public int bulletDespawnTime;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DestroyBulletAfterTime());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        StartCoroutine(DestroyBulletAfterTime(bulletDespawnTime));
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -21,10 +16,9 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator DestroyBulletAfterTime()
+    IEnumerator DestroyBulletAfterTime(int seconds)
     {
-        Debug.Log("lol");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
     }
 }
