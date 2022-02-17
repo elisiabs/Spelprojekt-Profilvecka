@@ -50,11 +50,11 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1073741826
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 9de06c0dd8cc19e44aa638457bf7a120, type: 2}
+    m_Data: {fileID: 11400000, guid: 6c5db7ede8087a54f8e6182d95e95085, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -4027723812035412788, guid: d6eff67f2afba1d49801eda34f4df8bf, type: 3}
@@ -196,7 +196,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &3245903931403096005
+--- !u!114 &5585659704135638023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
