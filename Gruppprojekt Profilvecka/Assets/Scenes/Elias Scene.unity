@@ -1266,16 +1266,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1544806333}
     - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Mass
+      propertyPath: m_LinearDrag
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_AngularDrag
-      value: 0.27
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_RootOrder
@@ -1324,10 +1320,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633860000197, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: orthographic size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
