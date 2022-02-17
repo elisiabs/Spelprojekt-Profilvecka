@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Elias Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/elisia Title screen.unity
+    guid: 6d37a83d7001c2740a7706c21f65d654
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 3149d66021cdcc241a36803ece5b5f0c
   m_configObjects: {}
