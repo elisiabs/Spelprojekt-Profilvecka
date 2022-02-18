@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer rightLegSprite;
 
     public bool canJump;
+    public bool inMenu = false;
     
     public float movementSpeed;
     public float jumpHeight;
@@ -29,6 +30,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!inMenu)
+        {
+            Walk();
+            Jump();
+        }
+    }
+
+    private void Walk()
+    {
         move = 0;
         Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
 
@@ -38,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = false;
-            leftLegSprite.flipX=false;
-            rightLegSprite.flipX=false;
+            leftLegSprite.flipX = false;
+            rightLegSprite.flipX = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
@@ -47,16 +57,18 @@ public class PlayerMovement : MonoBehaviour
             targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = true;
-            leftLegSprite.flipX=true;
-            rightLegSprite.flipX=true;
+            leftLegSprite.flipX = true;
+            rightLegSprite.flipX = true;
         }
         else
         {
             animator.SetBool("Walk", false);
         }
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
+    }
 
-
+    private void Jump()
+    {
         if (canJump)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
