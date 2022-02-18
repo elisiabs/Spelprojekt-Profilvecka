@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float invincibilityTime;
     public bool invincible = false;
+    public SpriteRenderer sprite;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible)
         {
             health -= damage;
+            sprite.color = Color.red;
             StartCoroutine(InvincibilityTime(invincibilityTime));
         }
     }
@@ -34,5 +36,6 @@ public class PlayerHealth : MonoBehaviour
         invincible = true;
         yield return new WaitForSeconds(seconds);
         invincible = false;
+        sprite.color = Color.white;
     }
 }
