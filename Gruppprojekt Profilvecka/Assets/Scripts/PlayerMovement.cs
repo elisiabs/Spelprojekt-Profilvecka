@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer leftLegSprite;
     public SpriteRenderer rightLegSprite;
 
-    public int timesJumped;
+    public bool canJump;
     
     public float movementSpeed;
     public float jumpHeight;
@@ -57,13 +57,13 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
 
 
-        if (timesJumped < 1)
+        if (canJump)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpHeight);
-                timesJumped++;
+                canJump = false;
             }
         }
     }
@@ -72,7 +72,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
-            timesJumped = 0;
+            canJump = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
+        {
+            canJump = false;
         }
     }
 
