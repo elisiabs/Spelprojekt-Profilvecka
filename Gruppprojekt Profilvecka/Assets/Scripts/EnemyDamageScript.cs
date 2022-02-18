@@ -19,11 +19,11 @@ public class EnemyDamageScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             player.damagePlayer(damage);
         }
-        else if(col.gameObject.layer == 7)//7 is "PlayerProjectile".
+        else if (col.gameObject.tag == "PlayerProjectile")
         {
             health -= 1;
         }

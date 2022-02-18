@@ -2500,14 +2500,6 @@ PrefabInstance:
       propertyPath: backLightSprite
       value: 
       objectReference: {fileID: 209486993}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LinearDrag
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_AngularDrag
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2555,10 +2547,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633860000058, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
