@@ -9,26 +9,28 @@ public class EnemyDamageScript : MonoBehaviour
    
     public float health;
     public float damage;
+    public float redFlashSeconds;
 
     private void Update()
     {
-        if(health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     private void damageEnemy(int damage)
     {
         health -= damage;
-        sprite.color = Color.red;
-        StartCoroutine(InvincibilityTime(1));
+        StartCoroutine(RedFlash(redFlashSeconds));
     }
 
-    IEnumerator InvincibilityTime(float seconds)
+    IEnumerator RedFlash(float seconds)
     {
+        sprite.color = Color.red;
         yield return new WaitForSeconds(seconds);
         sprite.color = Color.white;
+        if (health <= 0) //The reason this is here is because I want the red flash to finish before enemy dies.
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
