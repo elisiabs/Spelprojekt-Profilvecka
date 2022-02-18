@@ -52,7 +52,7 @@ public class ShooterScript : MonoBehaviour
         Vector3 dir = Input.mousePosition - pos;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        if(dir.magnitude > 12)
+        if(dir.magnitude > 15)
         {
             pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
