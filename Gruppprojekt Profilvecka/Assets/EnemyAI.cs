@@ -30,9 +30,12 @@ public class EnemyAI : MonoBehaviour {
     // the max distance from a ai to a waypoint for it to continue to the next waypoint
     public float nextWaypointDistance = 3;
 
+    // The Waypoint we are currently moving towards
     private int currentWaypoint = 0;
 
-    // The Waypoint we are currently moving towards
+    // Elias modifikation(sprite):
+    public SpriteRenderer sprite;
+    
     private void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -40,7 +43,7 @@ public class EnemyAI : MonoBehaviour {
 
         if (target == null)
         {
-            Debug.LogError("No Player found? PANIC!");
+            Debug.LogError("No Player found.");
             return;
         }
 
@@ -105,7 +108,19 @@ public class EnemyAI : MonoBehaviour {
         pathIsEnded = false;
 
         Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+        //Elias modifikation:
+        //Debug.Log(dir);
+        if (dir.x < -0.2)
+        {
+            sprite.flipX = false;
+        }
+        else if (dir.x > 0.2)
+        {
+            sprite.flipX = true;
+        }
+        //Slut av Elias modifikation.
         dir *= speed * Time.fixedDeltaTime;
+        
 
         rb.AddForce(dir, fMode);
 
@@ -113,8 +128,6 @@ public class EnemyAI : MonoBehaviour {
         if (dist < nextWaypointDistance)
         {
             currentWaypoint++;
-                
-
         }
 
 
