@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2922727633573157331}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.026}
 --- !u!212 &417957264
 SpriteRenderer:
@@ -111,7 +111,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2922727633573157331}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 33.797}
 --- !u!212 &847455369
 SpriteRenderer:
@@ -193,7 +193,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2922727633573157331}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -22.136}
 --- !u!212 &1519686223
 SpriteRenderer:
@@ -406,7 +406,7 @@ Transform:
   m_Children:
   - {fileID: 2922727633573157331}
   m_Father: {fileID: 2922727633502508087}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.688}
 --- !u!212 &2922727633463380594
 SpriteRenderer:
@@ -487,6 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2922727633502508087}
+  - component: {fileID: 2471356260032469793}
   m_Layer: 6
   m_Name: Shooter Pivot
   m_TagString: Untagged
@@ -505,10 +506,33 @@ Transform:
   m_LocalPosition: {x: 0.005, y: 0.0145, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2922727633639274080}
   - {fileID: 2922727633463380605}
   m_Father: {fileID: 2922727633577614805}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2471356260032469793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922727633502508086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec35153dd96a944f955b56aed3f9a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2922727633577614807}
+  pivotPoint: {fileID: 2922727633502508086}
+  bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
+  bulletSpawn: {fileID: 2922727633639274083}
+  slider: {fileID: 0}
+  backLightSprite: {fileID: 0}
+  animator: {fileID: 226070857}
+  recoilAmount: 12
+  bulletVelocity: 70
+  cooldownSpeed: 1.4
 --- !u!1 &2922727633573157330
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2922727633573157331}
   - component: {fileID: 2922727633573157328}
-  - component: {fileID: 2922727633573157329}
   m_Layer: 6
   m_Name: Shooter
   m_TagString: Untagged
@@ -538,7 +561,6 @@ Transform:
   m_LocalPosition: {x: 0.0032826122, y: -0.017392937, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2922727633639274080}
   - {fileID: 417957263}
   - {fileID: 847455368}
   - {fileID: 1519686222}
@@ -596,28 +618,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2922727633573157329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922727633573157330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eec35153dd96a944f955b56aed3f9a64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2922727633577614807}
-  pivotPoint: {fileID: 2922727633502508086}
-  bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
-  bulletSpawn: {fileID: 2922727633639274083}
-  slider: {fileID: 0}
-  backLightSprite: {fileID: 0}
-  animator: {fileID: 226070857}
-  recoilAmount: 12
-  bulletVelocity: 70
-  cooldownSpeed: 1.4
 --- !u!1 &2922727633577614807
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,10 +866,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2922727633639274083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1264, y: 0.03219999, z: 0}
+  m_LocalPosition: {x: 0.11440999, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2922727633573157331}
+  m_Father: {fileID: 2922727633502508087}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2922727633860000198
