@@ -110,11 +110,11 @@ public class EnemyAI : MonoBehaviour {
         Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         //Elias modifikation:
         //Debug.Log(dir);
-        if (dir.x < -0.2)
+        if (dir.x < -0.5)
         {
             sprite.flipX = false;
         }
-        else if (dir.x > 0.2)
+        else if (dir.x > 0.5)
         {
             sprite.flipX = true;
         }
