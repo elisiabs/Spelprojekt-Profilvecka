@@ -255,7 +255,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2922727633182863092}
-  - component: {fileID: 2922727633182863095}
   m_Layer: 6
   m_Name: FeetCollider
   m_TagString: Untagged
@@ -277,22 +276,6 @@ Transform:
   m_Father: {fileID: 2922727633577614805}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2922727633182863095
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922727633182863094}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.020000324, y: -0.31556347}
-  serializedVersion: 2
-  m_Radius: 0.1644362
 --- !u!1 &2922727633184041428
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2922727633577614792}
-  feetCollider: {fileID: 2922727633182863095}
+  feetCollider: {fileID: 0}
   animator: {fileID: 2922727633577614798}
   bodySprite: {fileID: 6045467830226162716}
   leftLegSprite: {fileID: 2922727633184041418}

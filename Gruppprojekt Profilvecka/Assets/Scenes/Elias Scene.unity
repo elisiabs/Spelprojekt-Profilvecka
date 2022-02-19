@@ -22497,6 +22497,18 @@ PrefabInstance:
       propertyPath: backLightSprite
       value: 
       objectReference: {fileID: 209486993}
+    - target: {fileID: 2922727633577614793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3705063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922727633577614793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03683853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: feetCollider
+      value: 
+      objectReference: {fileID: 8893005875885893253}
     - target: {fileID: 2922727633577614795, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -22559,3 +22571,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+--- !u!1 &8893005875885893252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2922727633182863094, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+  m_PrefabInstance: {fileID: 5759073263968248701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &8893005875885893253
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893005875885893252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.030305393, y: -0.28979093}
+  m_Size: {x: 0.38633335, y: 0.35981485}
+  m_Direction: 1
