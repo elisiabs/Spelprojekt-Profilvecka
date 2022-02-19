@@ -56,6 +56,11 @@ public class ShooterScript : MonoBehaviour
         {
             pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+        
+        if(dir.x < 0)
+        {
+            //TODO: ELIAS FIXA PISTOL ROTATION/FLIP ELLER NÅT HÄR 
+        }
     }
 
     public void PlayerInput()
