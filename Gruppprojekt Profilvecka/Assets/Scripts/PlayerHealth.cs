@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float redFlashSeconds;
     public float invincibilityTime;
     public bool invincible = false;
-    public SpriteRenderer playerSprite;
+    public SpriteRenderer[] playerSprites;
     public Image[] hearts;
     public Sprite brokenHeart;
 
@@ -65,8 +65,14 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator RedFlash(float seconds)
     {
-        playerSprite.color = Color.red;
+        for (int i = 0; i < playerSprites.Length; i++)
+        {
+            playerSprites[i].color = Color.red;
+        }
         yield return new WaitForSeconds(seconds);
-        playerSprite.color = Color.white;
+        for (int i = 0; i < playerSprites.Length; i++)
+        {
+            playerSprites[i].color = Color.white;
+        }
     }
 }
