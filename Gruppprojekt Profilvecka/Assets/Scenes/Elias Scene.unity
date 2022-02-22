@@ -22497,6 +22497,10 @@ PrefabInstance:
       propertyPath: backLightSprite
       value: 
       objectReference: {fileID: 209486993}
+    - target: {fileID: 2922727633502508087, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Size.x
       value: 0.3705063
