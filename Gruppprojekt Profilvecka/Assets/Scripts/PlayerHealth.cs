@@ -37,19 +37,16 @@ public class PlayerHealth : MonoBehaviour
                     //TODO: implement die
                     Debug.Log("You died.");
 
-                    //hearts[0].color = new Color(0, 0, 0, 0);
                     hearts[0].sprite = brokenHeart;
                     break;
                 }
             case 1:
                 {
-                    //hearts[1].color = new Color(0, 0, 0, 0);
                     hearts[1].sprite = brokenHeart;
                     break;
                 }
             case 2:
                 {
-                    //hearts[2].color = new Color(0,0,0,0);
                     hearts[2].sprite = brokenHeart;
                     break;
                 }
