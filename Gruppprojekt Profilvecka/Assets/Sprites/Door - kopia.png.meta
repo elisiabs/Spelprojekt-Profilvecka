@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 3efe5feb8f7f1c746891e756bd593b82
+guid: 5b9bbe1368a76cb4498161cce5956910
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2364143136210482220
+    second: Door - kopia_1
+  - first:
+      213: 2200524150942849946
+    second: Door - kopia_2
+  - first:
+      213: 1704472535146317631
+    second: Door - kopia_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -91,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_0
+      name: Door - kopia_0
       rect:
         serializedVersion: 2
         x: 32
@@ -105,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f2e24006c195840800000000000000
-      internalID: 5213229242370633579
+      spriteID: c92fe01acd6474530800000000000000
+      internalID: 3839115120765498012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_1
+      name: Door - kopia_1
       rect:
         serializedVersion: 2
         x: 32
@@ -126,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43193162a7cfe0600800000000000000
-      internalID: 436563815456543028
+      spriteID: 4db0ff7e750e03fd0800000000000000
+      internalID: -2364143136210482220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_2
+      name: Door - kopia_2
       rect:
         serializedVersion: 2
         x: 32
@@ -147,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7148170e08f6a6780800000000000000
-      internalID: -8689009931745917929
+      spriteID: a9bdd907e05d98e10800000000000000
+      internalID: 2200524150942849946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_3
+      name: Door - kopia_3
       rect:
         serializedVersion: 2
         x: 32
@@ -168,8 +177,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddf81b625bf330400800000000000000
-      internalID: 289144848352645085
+      spriteID: f374ec27db087a710800000000000000
+      internalID: 1704472535146317631
       vertices: []
       indices: 
       edges: []
