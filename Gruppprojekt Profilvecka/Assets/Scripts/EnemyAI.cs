@@ -104,7 +104,7 @@ public class EnemyAI : MonoBehaviour {
             currentWaypoint = path.vectorPath.Count - 1;
         }
 
-        Debug.Log($"PathEnded: {pathIsEnded}. CurrentWaypoint: {currentWaypoint}. Waypoints: {path.vectorPath.Count}");
+        //Debug.Log($"PathEnded: {pathIsEnded}. CurrentWaypoint: {currentWaypoint}. Waypoints: {path.vectorPath.Count}");
 
         if (pathIsEnded == false)
         {
@@ -117,16 +117,18 @@ public class EnemyAI : MonoBehaviour {
 
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             //Elias modifikation:
-            //Debug.Log(dir);
-            if (dir.x < -0)
+
+            Vector2 diff = transform.position - target.position;
+
+            if (diff.x > 0)
             {
                 sprite.flipX = false;
             }
-            else if (dir.x > 0)
+            else if (diff.x < 0)
             {
                 sprite.flipX = true;
             }
-            Debug.Log(dir);
+            //Debug.Log(diff);
             //Slut av Elias modifikation.
             dir *= speed * Time.fixedDeltaTime;
 
