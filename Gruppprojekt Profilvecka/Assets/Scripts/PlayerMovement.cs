@@ -91,8 +91,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
-            canJump = false;
+            StartCoroutine(JumpMargins(0.2f));
+            
         }
+    }
+
+    IEnumerator JumpMargins(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        canJump = false;
     }
 
 }
