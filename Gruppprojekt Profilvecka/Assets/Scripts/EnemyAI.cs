@@ -93,43 +93,47 @@ public class EnemyAI : MonoBehaviour {
         {
             return;
         }
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count - 1)
         {
             if (pathIsEnded)
             {
                 //Debug.Log("End of path reached.");
                 pathIsEnded = true;
             }
-                
-            
-            
+
+            currentWaypoint = path.vectorPath.Count - 1;
         }
 
-        pathIsEnded = false;
+        Debug.Log($"PathEnded: {pathIsEnded}. CurrentWaypoint: {currentWaypoint}. Waypoints: {path.vectorPath.Count}");
 
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        //Elias modifikation:
-        //Debug.Log(dir);
-        if (dir.x < -0.5)
+        if (pathIsEnded == false)
         {
-            sprite.flipX = false;
-        }
-        else if (dir.x > 0.5)
-        {
-            sprite.flipX = true;
-        }
-        //Slut av Elias modifikation.
-        dir *= speed * Time.fixedDeltaTime;
-        
+            float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (dist < nextWaypointDistance && currentWaypoint < path.vectorPath.Count - 1)
+            {
+                currentWaypoint++;
+            }
+            pathIsEnded = false;
 
-        rb.AddForce(dir, fMode);
+            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            //Elias modifikation:
+            //Debug.Log(dir);
+            if (dir.x < -0)
+            {
+                sprite.flipX = false;
+            }
+            else if (dir.x > 0)
+            {
+                sprite.flipX = true;
+            }
+            Debug.Log(dir);
+            //Slut av Elias modifikation.
+            dir *= speed * Time.fixedDeltaTime;
 
-        float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-        if (dist < nextWaypointDistance)
-        {
-            currentWaypoint++;
+
+            rb.AddForce(dir, fMode);
+
         }
-
 
     }
 }   
