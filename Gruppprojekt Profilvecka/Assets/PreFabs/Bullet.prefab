@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6004742218488493274}
   - component: {fileID: 4618844822313933348}
   - component: {fileID: 7311978482748141334}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6004742218488493268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6506142290494582793}
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 90a8834e3db018445b76d6a1834cd8c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDespawnTime: 5
+  trail: {fileID: 6506142290494582793}
+  rb: {fileID: 6004742218488493274}
 --- !u!70 &7311978482748141334
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -130,11 +132,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002371545, y: 0.0002819191}
-  m_Size: {x: 0.0682142, y: 0.033189468}
+  m_Offset: {x: -0.016025709, y: 0.0000000019104132}
+  m_Size: {x: 0.36438856, y: 0.18543538}
   m_Direction: 1
 --- !u!1 &8617410216719709889
 GameObject:
@@ -147,7 +149,7 @@ GameObject:
   - component: {fileID: 6506142290494582793}
   - component: {fileID: 9028924282424365018}
   - component: {fileID: 6381689452689570053}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8617410216719709889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.262, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6004742218488493272}
@@ -208,8 +210,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Time: 0.4
+  m_SortingOrder: 9
+  m_Time: 0.11
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -217,8 +219,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.17363358
+        time: 0.010887146
+        value: 0.1355896
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -227,7 +229,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.0128479
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -266,8 +268,8 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 3
+    numCapVertices: 8
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
