@@ -79,22 +79,29 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
             canJump = true;
+            StopCoroutine(JumpMargins(0));
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        canJump = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
-            StartCoroutine(JumpMargins(0.2f));
+            StartCoroutine(JumpMargins(0.15f)); //TODO: not hardcode man 
             
         }
     }
+
 
     IEnumerator JumpMargins(float seconds)
     {
