@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer bodySprite;
     public SpriteRenderer leftLegSprite;
     public SpriteRenderer rightLegSprite;
-
     public bool canJump;
     public bool inMenu = false;
     

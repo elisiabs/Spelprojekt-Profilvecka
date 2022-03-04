@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float redFlashSeconds;
     public float invincibilityTime;
     public bool invincible = false;
+    public Animator animator;
     public SpriteRenderer[] playerSprites;
     public Image[] hearts;
     public Sprite brokenHeart;
@@ -27,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= damage;
             StartCoroutine(InvincibilityTime(invincibilityTime));
-            StartCoroutine(RedFlash(redFlashSeconds));
+            StartCoroutine(Attacked(redFlashSeconds));
         }
 
         switch (health)
@@ -60,8 +61,12 @@ public class PlayerHealth : MonoBehaviour
         invincible = false;
     }
 
-    IEnumerator RedFlash(float seconds)
+    IEnumerator Attacked(float seconds)
     {
+        animator.SetTrigger("CameraShake");
+        //TODO: Implement rgb color separation on attacked. Requires post processing.
+
+        //The following makes the player flash red for a short while.
         for (int i = 0; i < playerSprites.Length; i++)
         {
             playerSprites[i].color = Color.red;
