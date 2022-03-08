@@ -2082,11 +2082,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -50, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1480298215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4845889201577635995, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-  m_PrefabInstance: {fileID: 5759073263968248701}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1485228919
 GameObject:
   m_ObjectHideFlags: 0
@@ -39413,10 +39408,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Ghost Dog
       objectReference: {fileID: 0}
-    - target: {fileID: 4669785898247787087, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
 --- !u!1001 &5759073263968248701
@@ -39426,10 +39417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1064627117}
     m_Modifications:
-    - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: light
-      value: 
-      objectReference: {fileID: 1480298215}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: slider
       value: 
@@ -39497,42 +39484,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845889201577635995, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Color.b
-      value: 0.39999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6640604
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_FalloffIntensity
-      value: 0.839
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_ShapeLightFalloffSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938312387947029393, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_ShapeLightParametricSides
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
