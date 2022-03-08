@@ -444,8 +444,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02991891, y: -0.3066588}
-  m_Size: {x: 0.18856955, y: 0.35692394}
+  m_Offset: {x: -0.027343035, y: -0.24225965}
+  m_Size: {x: 0.31736612, y: 0.48572224}
   m_Direction: 0
 --- !u!1 &2922727633184041428
 GameObject:
@@ -827,7 +827,7 @@ Rigidbody2D:
   m_AngularDrag: 2
   m_GravityScale: 3.5
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -886,6 +886,7 @@ MonoBehaviour:
   redFlashSeconds: 0.1
   invincibilityTime: 1
   invincible: 0
+  slowMotionTimeScale: 0.5
   cameraAnimator: {fileID: 6042817895389816874}
   playerSprites:
   - {fileID: 6045467830226162716}

@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float redFlashSeconds;
     public float invincibilityTime;
     public bool invincible = false;
+    public float slowMotionTimeScale = 0.5f;
     public Animator cameraAnimator;
     public SpriteRenderer[] playerSprites;
     public Image[] hearts;
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
             health -= damage;
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
+            StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
         }
 
         switch (health)
@@ -64,9 +66,8 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator Attacked(float seconds)
     {
         cameraAnimator.SetTrigger("CameraShake");
-        //TODO: Implement rgb color separation on attacked. Requires post processing.
 
-        //The following makes the player flash red for a short while.
+        //The following makes the player flash red for a short while and also slows down time.
         for (int i = 0; i < playerSprites.Length; i++)
         {
             playerSprites[i].color = Color.red;
@@ -76,5 +77,13 @@ public class PlayerHealth : MonoBehaviour
         {
             playerSprites[i].color = Color.white;
         }
+    }
+
+    IEnumerator slowMotion(float seconds)
+    {
+        Time.timeScale = slowMotionTimeScale;
+        yield return new WaitForSeconds(seconds);
+        Time.timeScale = 1;
+
     }
 }

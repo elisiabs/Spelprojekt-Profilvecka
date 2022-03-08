@@ -90,7 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        canJump = true;
+        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
+        {
+            canJump = true;
+
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
