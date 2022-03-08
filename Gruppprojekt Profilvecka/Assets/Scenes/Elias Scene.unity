@@ -40025,18 +40025,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1064627117}
     m_Modifications:
-    - target: {fileID: 1529630789915736681, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_CameraType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529630789915736681, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529630789915736681, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_VolumeLayerMask.m_Bits
-      value: 631
-      objectReference: {fileID: 0}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: slider
       value: 
@@ -40104,18 +40092,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247727866650978702, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392746395886904977, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: weight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392746395886904977, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}

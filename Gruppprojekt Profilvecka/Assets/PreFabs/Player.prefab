@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 6136253604497254966}
   - component: {fileID: 1529630789915736681}
   - component: {fileID: 4392746395886904977}
+  - component: {fileID: 6042817895389816874}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -351,9 +352,9 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 631
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -378,8 +379,27 @@ MonoBehaviour:
   isGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: 8dff748be363a36489a1e755e8341136, type: 2}
+--- !u!95 &6042817895389816874
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456700081640289262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f44053f76833b34784031de59e7ec6f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2922727633182863094
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +886,7 @@ MonoBehaviour:
   redFlashSeconds: 0.1
   invincibilityTime: 1
   invincible: 0
-  animator: {fileID: 2922727633577614798}
+  cameraAnimator: {fileID: 6042817895389816874}
   playerSprites:
   - {fileID: 6045467830226162716}
   - {fileID: 2922727634572290336}
