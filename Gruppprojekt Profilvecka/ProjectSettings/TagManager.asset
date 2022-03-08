@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Platform
   - PlayerProjectile
+  - Destruktable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Destruktable
   - Water
   - UI
   - Player
