@@ -12,6 +12,7 @@ public class ShooterScript : MonoBehaviour
     public Slider slider;
     public GameObject backLightSprite;
     public Animator animator;
+    public GameObject light;
     public float recoilAmount;
     Rigidbody2D playerRb;
 
@@ -75,7 +76,15 @@ public class ShooterScript : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
             cooldown = 0;
             playerRb.velocity = -transform.right * recoilAmount;
+            StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
+    }
+
+    IEnumerator muzzleFlash()
+    {
+        light.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        light.SetActive(false);
     }
 }
