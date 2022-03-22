@@ -6,23 +6,23 @@ using UnityEngine.Tilemaps;
 public class Destruktable : MonoBehaviour
 {
     public Tilemap DestruktableTileMap;
-
+    public Transform DoorPiece1;
+    public bool detachPiece = true;
     private void Start()
     {
-        DestruktableTileMap = GetComponent<Tilemap>();
+    
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("PlayerProjectile"))
+        if (collision.gameObject.tag == ("PlayerProjectile"))
         {
-            Vector3 hitPosision = Vector3.zero;
-            foreach (ContactPoint2D hit in collision.contacts)
+            if (detachPiece == true)
             {
-                hitPosision.x = hit.point.x - 0.01f * hit.normal.x;
-                hitPosision.y = hit.point.y - 0.01f * hit.normal.y;
-                DestruktableTileMap.SetTile(DestruktableTileMap.WorldToCell(hitPosision), null);
+                Debug.Log("wut");
+                DoorPiece1.parent = null;
             }
+            Destroy(gameObject);
         }
     }
 }
