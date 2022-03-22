@@ -1602,6 +1602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 585776492}
   - component: {fileID: 585776491}
+  - component: {fileID: 585776493}
   m_Layer: 0
   m_Name: Door piece 3
   m_TagString: Untagged
@@ -1668,12 +1669,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585776490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47090912, y: -0.55763435, z: 0}
+  m_LocalPosition: {x: 0.49, y: -0.524, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1566201963}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &585776493
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585776490}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &614602789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,8 +2674,9 @@ GameObject:
   m_Component:
   - component: {fileID: 766060648}
   - component: {fileID: 766060647}
+  - component: {fileID: 766060649}
   m_Layer: 0
-  m_Name: DoorPiece1
+  m_Name: Door Piece 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2718,12 +2741,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766060646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5535, y: 1.5609, z: 0}
+  m_LocalPosition: {x: 0.51, y: 1.5609, z: 0}
   m_LocalScale: {x: 0.97642845, y: 0.8584182, z: 1}
   m_Children: []
   m_Father: {fileID: 1566201963}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &766060649
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766060646}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &778613855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3899,6 +3943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1008251484}
   - component: {fileID: 1008251483}
+  - component: {fileID: 1008251485}
   m_Layer: 0
   m_Name: Door piece 4
   m_TagString: Untagged
@@ -3971,6 +4016,27 @@ Transform:
   m_Father: {fileID: 1566201963}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1008251485
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008251482}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!213 &1026947607
 Sprite:
   m_ObjectHideFlags: 0
@@ -4613,6 +4679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1148193726}
   - component: {fileID: 1148193725}
+  - component: {fileID: 1148193727}
   m_Layer: 0
   m_Name: Door piece 2
   m_TagString: Untagged
@@ -4679,12 +4746,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148193724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47090912, y: 0.46622467, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1566201963}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1148193727
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148193724}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1204113745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6297,9 +6385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca334e36ffa1694469ebecb4644d3429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestruktableTileMap: {fileID: 0}
   DoorPiece1: {fileID: 766060648}
-  detachPiece: 0
+  DoorPiece2: {fileID: 1148193726}
+  DoorPiece3: {fileID: 585776492}
+  DoorPiece4: {fileID: 1008251484}
+  detachPiece: 1
 --- !u!61 &1566201961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63620,7 +63710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097240118389248160, guid: dbbdbfa6c8417e748aaa97fb076ca246, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5535
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 9097240118389248160, guid: dbbdbfa6c8417e748aaa97fb076ca246, type: 3}
       propertyPath: m_LocalPosition.y
@@ -63660,7 +63750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097240118389248174, guid: dbbdbfa6c8417e748aaa97fb076ca246, type: 3}
       propertyPath: m_Name
-      value: DoorPiece1
+      value: Door Piece 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbdbfa6c8417e748aaa97fb076ca246, type: 3}

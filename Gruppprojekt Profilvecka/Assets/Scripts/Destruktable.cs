@@ -5,8 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class Destruktable : MonoBehaviour
 {
-    public Tilemap DestruktableTileMap;
     public Transform DoorPiece1;
+    public Transform DoorPiece2;
+    public Transform DoorPiece3;
+    public Transform DoorPiece4;
+
     public bool detachPiece = true;
     private void Start()
     {
@@ -21,6 +24,9 @@ public class Destruktable : MonoBehaviour
             {
                 Debug.Log("wut");
                 DoorPiece1.parent = null;
+                DoorPiece2.parent = null;
+                DoorPiece3.parent = null;
+                DoorPiece4.parent = null;
             }
             Destroy(gameObject);
         }
