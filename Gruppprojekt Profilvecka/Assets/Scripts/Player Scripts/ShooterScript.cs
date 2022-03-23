@@ -13,6 +13,7 @@ public class ShooterScript : MonoBehaviour
     [SerializeField] private BoxCollider2D pushCollider;
     [SerializeField] private GameObject backLightSprite;
     [SerializeField] private GameObject light;
+    [SerializeField] private PlayerMovement movement;
 
     [Header("GameObjects used only for shooter change")]
     [SerializeField] private GameObject Shooter1;
@@ -21,7 +22,7 @@ public class ShooterScript : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Slider slider;
     [SerializeField] private Animator animator;
-    private Rigidbody2D playerRb;
+    [SerializeField] private Rigidbody2D playerRb;
 
     [Header("Variables")]
     private float angle;
@@ -37,7 +38,7 @@ public class ShooterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = player.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -46,8 +47,8 @@ public class ShooterScript : MonoBehaviour
         AimShooter();
         SwitchWeapon();
         PlayerInput();
-        
-        if(cooldown < 1)
+
+        if (cooldown < 1)
         {
             cooldown = cooldown + (cooldownSpeed * Time.deltaTime);
             backLightSprite.SetActive(false);
@@ -67,12 +68,12 @@ public class ShooterScript : MonoBehaviour
         Vector3 dir = Input.mousePosition - pos;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        if(dir.magnitude > 30)
+        if (dir.magnitude > (30 * 522f / Screen.width))
         {
             pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        
-        if(dir.x < 0 && transform.localScale.x != -1)
+
+        if (dir.x < 0 && transform.localScale.x != -1)
         {
             transform.localScale = new Vector2(1, -1);
         }
@@ -103,15 +104,30 @@ public class ShooterScript : MonoBehaviour
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
             cooldown = 0;
-            playerRb.velocity = -transform.right * recoilAmount;
+            //playerRb.velocity = -transform.right * recoilAmount;
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
-        else if(Input.GetMouseButtonDown(1) && cooldown <= 1 && Shooter2.activeInHierarchy)
+        else if (Input.GetMouseButtonDown(1) && cooldown <= 1 && Shooter2.activeInHierarchy)
         {
             cooldown = 0;
-            playerRb.velocity = Vector2.zero;
-            playerRb.velocity = -transform.right * recoilAmount2;
+            playerRb.velocity = Vector3.zero;
+            //playerRb.velocity = -transform.right * recoilAmount2;
+            //playerRb.AddForce(-transform.right * recoilAmount2);
+            movement.knockbackForce += -new Vector2(transform.right.x, transform.right.y) * recoilAmount2;
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            List<Collider2D> hitColliders = new List<Collider2D>();
+            int amountHit = pushCollider.OverlapCollider(contactFilter, hitColliders);
+
+            if (amountHit > 0)
+            {
+                //något innanför pushcollider
+                for (int i = 0; i < hitColliders.Count; i++)
+                {
+                    //if(hitColliders[i].gameObject.layer)
+                }
+            }
+
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
@@ -123,21 +139,4 @@ public class ShooterScript : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         light.SetActive(false);
     }
-
-    /*private void OnTriggerStay2D(Collider2D col)
-    {
-        Debug.Log("lol");
-        
-        Debug.Log("OnTriggerStay2D");
-        if (Input.GetMouseButtonDown(1) && cooldown <= 1 && Shooter2.activeInHierarchy)
-        {
-            Debug.Log("Player Right click while col");
-            if (col.gameObject.layer == 9) //9 is layer "Ghost".
-            {
-                Debug.Log("Enemy pushed");
-                col.gameObject.GetComponent<Rigidbody2D>().velocity = -transform.right * 6000;
-            }
-        }
-    }
-    */
 }

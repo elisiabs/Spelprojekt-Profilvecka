@@ -17,8 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float moveSmooth;
     float move;
+
+    public Vector2 knockbackForce = Vector2.zero;
     
-    Vector3 m_Velocity = Vector3.zero;
+    Vector2 m_Velocity = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +41,12 @@ public class PlayerMovement : MonoBehaviour
     private void Walk()
     {
         move = 0;
-        Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+        Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - knockbackForce.y);
 
         if (Input.GetKey(KeyCode.D))
         {
             move = 10;
-            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - knockbackForce.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = false;
             leftLegSprite.flipX = false;
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             move = -10;
-            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y);
+            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y-knockbackForce.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = true;
             leftLegSprite.flipX = true;
@@ -63,7 +65,9 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth) + knockbackForce;
+
+        knockbackForce = knockbackForce * 0.1f;
     }
 
     private void Jump()
