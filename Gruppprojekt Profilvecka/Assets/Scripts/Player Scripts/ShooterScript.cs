@@ -108,7 +108,7 @@ public class ShooterScript : MonoBehaviour
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
-        else if (Input.GetMouseButtonDown(1) && cooldown <= 1 && Shooter2.activeInHierarchy)
+        else if (Input.GetMouseButtonDown(1) && cooldown >= 1 && Shooter2.activeInHierarchy)
         {
             cooldown = 0;
             playerRb.velocity = Vector3.zero;
