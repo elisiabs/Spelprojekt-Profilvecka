@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Walk()
     {
+        knockbackForce = knockbackForce * 0.1f;
         move = 0;
         Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - knockbackForce.y);
 
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth) + knockbackForce;
 
-        knockbackForce = knockbackForce * 0.1f;
+        
     }
 
     private void Jump()
