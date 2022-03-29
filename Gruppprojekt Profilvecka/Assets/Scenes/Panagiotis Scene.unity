@@ -6385,11 +6385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca334e36ffa1694469ebecb4644d3429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorPiece1: {fileID: 766060648}
-  DoorPiece2: {fileID: 1148193726}
-  DoorPiece3: {fileID: 585776492}
-  DoorPiece4: {fileID: 1008251484}
-  detachPiece: 1
+  DoorPieces:
+  - {fileID: 766060648}
+  - {fileID: 1148193726}
+  - {fileID: 585776492}
+  - {fileID: 1008251484}
 --- !u!61 &1566201961
 BoxCollider2D:
   m_ObjectHideFlags: 0
