@@ -944,11 +944,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &783886625 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3213514092486141379, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-  m_PrefabInstance: {fileID: 5759073263968248701}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &798984297
 GameObject:
   m_ObjectHideFlags: 0
@@ -35393,22 +35388,6 @@ CompositeCollider2D:
       - {x: 37.00003, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!114 &1578730487 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-  m_PrefabInstance: {fileID: 5759073263968248701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a6aee6ebc3bb9419daf57b294548f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &1578730489 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-  m_PrefabInstance: {fileID: 5759073263968248701}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623912405
 GameObject:
   m_ObjectHideFlags: 0
@@ -38808,37 +38787,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 641441810}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: movement
-      value: 
-      objectReference: {fileID: 1578730487}
-    - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: playerRb
-      value: 
-      objectReference: {fileID: 1578730489}
-    - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: pushCollider
-      value: 
-      objectReference: {fileID: 783886625}
+      propertyPath: recoilAmount
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: recoilAmount2
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: backLightSprite
       value: 
       objectReference: {fileID: 209486993}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_AngularDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922727633577614792, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614795, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -38898,10 +38857,6 @@ PrefabInstance:
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068557301942400345, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
