@@ -38787,6 +38787,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 641441810}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: recoilAmount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: backLightSprite
       value: 
       objectReference: {fileID: 209486993}
