@@ -109,20 +109,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
-        {
-            canJump = true;
-
-        }
-    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
         {
             StartCoroutine(JumpMargins(0.15f)); //TODO: not hardcode man 
-            
         }
     }
 
@@ -132,5 +123,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         canJump = false;
     }
-
 }
