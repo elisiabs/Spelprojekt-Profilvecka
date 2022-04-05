@@ -104,7 +104,9 @@ public class ShooterScript : MonoBehaviour
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
             cooldown = 0;
-            //playerRb.velocity = -transform.right * recoilAmount;
+
+            movement.knockbackForce += -new Vector2(transform.right.x, transform.right.y) * recoilAmount;
+
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
@@ -112,9 +114,8 @@ public class ShooterScript : MonoBehaviour
         {
             cooldown = 0;
             playerRb.velocity = Vector3.zero;
-            //playerRb.velocity = -transform.right * recoilAmount2;
-            //playerRb.AddForce(-transform.right * recoilAmount2);
             movement.knockbackForce += -new Vector2(transform.right.x, transform.right.y) * recoilAmount2;
+
             ContactFilter2D contactFilter = new ContactFilter2D();
             List<Collider2D> hitColliders = new List<Collider2D>();
             int amountHit = pushCollider.OverlapCollider(contactFilter, hitColliders);

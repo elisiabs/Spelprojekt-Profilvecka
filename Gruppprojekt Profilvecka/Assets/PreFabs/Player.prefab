@@ -736,17 +736,19 @@ MonoBehaviour:
   pivotPoint: {fileID: 2922727633502508086}
   bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
   bulletSpawn: {fileID: 2922727633639274083}
-  pushCollider: {fileID: 0}
+  pushCollider: {fileID: 3213514092486141379}
   backLightSprite: {fileID: 0}
   light: {fileID: 4845889201577635995}
+  movement: {fileID: 2922727633577614794}
   Shooter1: {fileID: 2922727633573157330}
   Shooter2: {fileID: 7068557301942400345}
   slider: {fileID: 0}
   animator: {fileID: 3784742381821280059}
+  playerRb: {fileID: 2922727633577614792}
   recoilAmount: 12
   bulletVelocity: 70
   cooldownSpeed: 1.2
-  recoilAmount2: 24
+  recoilAmount2: 200
 --- !u!95 &3784742381821280059
 Animator:
   serializedVersion: 3
@@ -901,13 +903,13 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0.5
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &2922727633577614793
 CapsuleCollider2D:
@@ -948,6 +950,9 @@ MonoBehaviour:
   movementSpeed: 1.5
   jumpHeight: 750
   moveSmooth: 0.08
+  preventMovementFalloff: 1
+  preventGravityFalloff: 0.5
+  knockbackForce: {x: 0, y: 0}
 --- !u!114 &2922727633577614795
 MonoBehaviour:
   m_ObjectHideFlags: 0
