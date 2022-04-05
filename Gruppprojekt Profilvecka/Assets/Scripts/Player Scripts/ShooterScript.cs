@@ -12,7 +12,9 @@ public class ShooterScript : MonoBehaviour
     [SerializeField] private GameObject bulletSpawn;
     [SerializeField] private BoxCollider2D pushCollider;
     [SerializeField] private GameObject backLightSprite;
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     [SerializeField] private GameObject light;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     [SerializeField] private PlayerMovement movement;
 
     [Header("GameObjects used only for shooter change")]
@@ -86,12 +88,12 @@ public class ShooterScript : MonoBehaviour
 
     public void SwitchWeapon()
     {
-        if (Input.GetMouseButtonDown(0) && cooldown >= 1) //Left click
+        if (Input.GetButtonDown("Fire1") && cooldown >= 1) //Left click
         {
             Shooter1.SetActive(true);
             Shooter2.SetActive(false);
         }
-        else if (Input.GetMouseButtonDown(1) && cooldown >= 1) //Right click //TODO: implement game manager to manage if player has unlocked this yet.
+        else if (Input.GetButtonDown("Fire2") && cooldown >= 1) //Right click //TODO: implement game manager to manage if player has unlocked this yet.
         {
             Shooter1.SetActive(false);
             Shooter2.SetActive(true);
@@ -100,7 +102,7 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
-        if (Input.GetMouseButtonDown(0) && cooldown >= 1 && Shooter1.activeInHierarchy)
+        if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
@@ -111,7 +113,7 @@ public class ShooterScript : MonoBehaviour
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
-        else if (Input.GetMouseButtonDown(1) && cooldown >= 1 && Shooter2.activeInHierarchy)
+        else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy)
         {
             cooldown = 0;
             playerRb.velocity = Vector3.zero;
@@ -129,7 +131,6 @@ public class ShooterScript : MonoBehaviour
                     if(hitColliders[i].gameObject.layer == 9) //9 is the Ghost layer
                     {
                         hitColliders[i].attachedRigidbody.velocity = (new Vector2(transform.right.x, transform.right.y) * knockbackAmount);
-                        Debug.Log(hitColliders[i]);
                     }
                 }
             }

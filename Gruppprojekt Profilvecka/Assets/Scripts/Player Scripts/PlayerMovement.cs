@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float previousKnockback;
     public float preventMovementFalloff = 1f;
     public float preventGravityFalloff = 0.5f;
+    public float jumpBufferTime;
 
     public Vector2 knockbackForce = Vector2.zero;
 
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - previousKnockback);
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
             move = 10;
             animator.SetBool("Walk", true);
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             leftLegSprite.flipX = false;
             rightLegSprite.flipX = false;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetAxisRaw("Horizontal") < 0)
         {
             move = -10;
             animator.SetBool("Walk", true);
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         bool jumpInput = Input.GetButtonDown("Jump");
-        bool jumpBuffer = jumpPressed && jumpLastPressed + 0.3f < Time.time;
+        bool jumpBuffer = jumpPressed && jumpLastPressed + jumpBufferTime < Time.time;
 
         if (jumpInput == true || jumpBuffer)
         {
