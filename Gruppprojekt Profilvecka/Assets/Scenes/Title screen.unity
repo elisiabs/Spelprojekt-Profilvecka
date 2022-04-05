@@ -471,7 +471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: bye bye
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 210fff812fc0f8841bded7f75784a6a5, type: 2}
   m_sharedMaterial: {fileID: -5071524057408762260, guid: 210fff812fc0f8841bded7f75784a6a5, type: 2}
@@ -5378,8 +5378,9 @@ GameObject:
   - component: {fileID: 1211520870}
   - component: {fileID: 1211520869}
   - component: {fileID: 1211520868}
+  - component: {fileID: 1211520871}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5427,7 +5428,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -5448,7 +5449,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211520869}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1211520871}
+        m_TargetAssemblyTypeName: QuitButton, scripts.ui
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211520869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5487,6 +5500,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211520866}
   m_CullTransparentMesh: 1
+--- !u!114 &1211520871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211520866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5730e72cbefb85a40a2613b70f19650d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1236787292
 GameObject:
   m_ObjectHideFlags: 0

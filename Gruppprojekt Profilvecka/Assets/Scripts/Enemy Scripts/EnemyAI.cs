@@ -35,6 +35,7 @@ public class EnemyAI : MonoBehaviour {
 
     // Elias modifikation(sprite):
     public SpriteRenderer sprite;
+    public bool spotted = false;
     
     private void Start()
     {
@@ -83,60 +84,73 @@ public class EnemyAI : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
-        if (target == null)
+        
         {
-            return;
-        }
-
-        if (path == null)
-        {
-            return;
-        }
-        if (currentWaypoint >= path.vectorPath.Count - 1)
-        {
-            if (pathIsEnded)
+            if (target == null)
             {
-                //Debug.Log("End of path reached.");
-                pathIsEnded = true;
+                return;
             }
 
-            currentWaypoint = path.vectorPath.Count - 1;
-        }
+            if (path == null)
+            {
+                return;
+            }
+            if (currentWaypoint >= path.vectorPath.Count - 1)
+            {
+                if (pathIsEnded)
+                {
+                    //Debug.Log("End of path reached.");
+                    pathIsEnded = true;
+                }
 
-        //Debug.Log($"PathEnded: {pathIsEnded}. CurrentWaypoint: {currentWaypoint}. Waypoints: {path.vectorPath.Count}");
+                currentWaypoint = path.vectorPath.Count - 1;
+            }
 
-        if (pathIsEnded == false)
+            //Debug.Log($"PathEnded: {pathIsEnded}. CurrentWaypoint: {currentWaypoint}. Waypoints: {path.vectorPath.Count}");
+
+            if (pathIsEnded == false)
+            {
+                float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (dist < nextWaypointDistance && currentWaypoint < path.vectorPath.Count - 1)
+                {
+                    currentWaypoint++;
+                }
+                pathIsEnded = false;
+
+                Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+                //Elias modifikation:
+
+                Vector2 diff = transform.position - target.position;
+
+                if (diff.x > 0)
+                {
+                    sprite.flipX = false;
+                }
+                else if (diff.x < 0)
+                {
+                    sprite.flipX = true;
+                }
+                //Debug.Log(diff);
+                //Slut av Elias modifikation.
+                dir *= speed * Time.fixedDeltaTime;
+
+                if(spotted)
+                {
+                    rb.AddForce(dir, fMode);
+                }
+                
+            }
+        
+
+        }  
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
         {
-            float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-            if (dist < nextWaypointDistance && currentWaypoint < path.vectorPath.Count - 1)
-            {
-                currentWaypoint++;
-            }
-            pathIsEnded = false;
-
-            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-            //Elias modifikation:
-
-            Vector2 diff = transform.position - target.position;
-
-            if (diff.x > 0)
-            {
-                sprite.flipX = false;
-            }
-            else if (diff.x < 0)
-            {
-                sprite.flipX = true;
-            }
-            //Debug.Log(diff);
-            //Slut av Elias modifikation.
-            dir *= speed * Time.fixedDeltaTime;
-
-
-            rb.AddForce(dir, fMode);
-
+            spotted = true;
         }
-
     }
 }   
 
