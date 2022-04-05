@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4334963702336397118}
   - component: {fileID: 4334963702336397109}
   - component: {fileID: 4334963702336397108}
+  - component: {fileID: 1601097804}
   m_Layer: 9
   m_Name: Enemy Ghost Dog
   m_TagString: Untagged
@@ -245,6 +246,7 @@ MonoBehaviour:
   pathIsEnded: 0
   nextWaypointDistance: 4.56
   sprite: {fileID: 4334963702336397107}
+  spotted: 0
 --- !u!95 &4334963702336397109
 Animator:
   serializedVersion: 3
@@ -281,3 +283,19 @@ MonoBehaviour:
   health: 2
   damage: 1
   redFlashSeconds: 0.1
+--- !u!58 &1601097804
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334963702336397119}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6
