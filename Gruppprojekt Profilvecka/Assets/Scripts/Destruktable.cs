@@ -12,7 +12,8 @@ public class Destruktable : MonoBehaviour
         if (collision.gameObject.tag == ("PlayerProjectile"))
         {
                 for (int i = 0; i < 4; i++)
-                {
+                {  
+                    Rigidbody2D rigidbody = DoorPieces[i].gameObject.AddComponent<Rigidbody2D>() as Rigidbody2D;
                     DoorPieces[i].parent = null;
                 }
             
