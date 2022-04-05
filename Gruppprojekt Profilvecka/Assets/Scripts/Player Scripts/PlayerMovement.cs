@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer rightLegSprite;
     public bool canJump;
     public bool inMenu = false;
-    
+
     public float movementSpeed;
     public float jumpHeight;
     public float moveSmooth;
@@ -22,14 +22,11 @@ public class PlayerMovement : MonoBehaviour
     public float preventGravityFalloff = 0.5f;
 
     public Vector2 knockbackForce = Vector2.zero;
-    
-    Vector2 m_Velocity = Vector2.zero;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool jumpPressed = false;
+    float jumpLastPressed = 0f;
+
+    Vector2 m_Velocity = Vector2.zero;
 
     // Update is called once per frame
     void Update()
@@ -44,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void Walk()
     {
         move = 0;
-        
+
         Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - previousKnockback);
 
         if (Input.GetKey(KeyCode.D))
@@ -69,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float gravity = rb.velocity.y;
-        if(knockbackForce.magnitude > preventGravityFalloff)
+        if (knockbackForce.magnitude > preventGravityFalloff)
         {
             gravity = 0;
         }
@@ -89,17 +86,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (canJump)
+        bool jumpInput = Input.GetButtonDown("Jump");
+        bool jumpBuffer = jumpPressed && jumpLastPressed + 0.3f < Time.time;
+
+        if (jumpInput == true || jumpBuffer)
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
+            if (canJump)
             {
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpHeight);
                 canJump = false;
+                jumpPressed = false;
+            }
+            else
+            {
+                jumpPressed = true;
+                jumpLastPressed = Time.time;
             }
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
@@ -116,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(JumpMargins(0.15f)); //TODO: not hardcode man 
         }
     }
-
 
     IEnumerator JumpMargins(float seconds)
     {
