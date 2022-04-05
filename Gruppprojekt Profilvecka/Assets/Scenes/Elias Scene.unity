@@ -38775,7 +38775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: jumpBufferTime
-      value: 0
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614795, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: hearts.Array.data[0]
