@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         bool jumpInput = Input.GetButtonDown("Jump");
-        bool jumpBuffer = jumpPressed && jumpLastPressed + jumpBufferTime < Time.time;
+        bool jumpBuffer = jumpPressed && jumpLastPressed + jumpBufferTime > Time.time;
 
         if (jumpInput == true || jumpBuffer)
         {
