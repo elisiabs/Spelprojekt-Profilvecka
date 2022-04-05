@@ -2134,6 +2134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56b179f16ae34141ab81f9c6b31fac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1551793024 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4334963702336397111, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
+  m_PrefabInstance: {fileID: 1922361944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563390061
 GameObject:
   m_ObjectHideFlags: 0
@@ -38458,6 +38463,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1535972716}
+    - target: {fileID: 4334963702336397108, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 1551793024}
+    - target: {fileID: 4334963702336397108, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
+      propertyPath: circleCollider
+      value: 
+      objectReference: {fileID: 1551793024}
+    - target: {fileID: 4334963702336397108, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
+      propertyPath: sphereCollider
+      value: 
+      objectReference: {fileID: 1551793024}
     - target: {fileID: 4334963702336397118, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
       propertyPath: target
       value: 
@@ -38755,6 +38772,10 @@ PrefabInstance:
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: knockbackAmount
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: jumpBufferTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614795, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: hearts.Array.data[0]

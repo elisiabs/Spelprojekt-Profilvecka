@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4334963702336397118}
   - component: {fileID: 4334963702336397109}
   - component: {fileID: 4334963702336397108}
-  - component: {fileID: 1601097804}
+  - component: {fileID: 2889522061303376240}
   m_Layer: 9
   m_Name: Enemy Ghost Dog
   m_TagString: Untagged
@@ -280,10 +280,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   sprite: {fileID: 4334963702336397107}
+  circleCollider: {fileID: 2889522061303376240}
   health: 2
   damage: 1
   redFlashSeconds: 0.1
---- !u!58 &1601097804
+--- !u!58 &2889522061303376240
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
