@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float moveSmooth;
     float move;
+    float previousKnockback;
+    public float preventMovementFalloff = 1f;
+    public float preventGravityFalloff = 0.5f;
 
     public Vector2 knockbackForce = Vector2.zero;
     
@@ -40,14 +43,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Walk()
     {
-        knockbackForce = knockbackForce * 0.1f;
         move = 0;
-        Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - knockbackForce.y);
+        
+        Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - previousKnockback);
 
         if (Input.GetKey(KeyCode.D))
         {
             move = 10;
-            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - knockbackForce.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = false;
             leftLegSprite.flipX = false;
@@ -56,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             move = -10;
-            targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y-knockbackForce.y);
             animator.SetBool("Walk", true);
             bodySprite.flipX = true;
             leftLegSprite.flipX = true;
@@ -66,9 +67,24 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
-        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth) + knockbackForce;
 
-        
+        float gravity = rb.velocity.y;
+        if(knockbackForce.magnitude > preventGravityFalloff)
+        {
+            gravity = 0;
+        }
+
+        bool forbidRightMove = knockbackForce.x > preventMovementFalloff && move > 0;
+        bool forbidLeftMove = knockbackForce.x < -preventMovementFalloff && move < 0;
+
+        if (forbidLeftMove || forbidRightMove)
+        {
+            move = 0;
+        }
+
+        targetVelocity = new Vector2(move * movementSpeed, gravity) + knockbackForce;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, moveSmooth);
+        knockbackForce = knockbackForce * 0.8f;
     }
 
     private void Jump()
