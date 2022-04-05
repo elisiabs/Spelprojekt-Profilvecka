@@ -33,6 +33,7 @@ public class ShooterScript : MonoBehaviour
     [SerializeField] private float cooldownSpeed;
     [Header("Shooter 2 Variables")]
     [SerializeField] private float recoilAmount2;
+    [SerializeField] private float knockbackAmount;
 
 
     // Start is called before the first frame update
@@ -125,7 +126,11 @@ public class ShooterScript : MonoBehaviour
                 //något innanför pushcollider
                 for (int i = 0; i < hitColliders.Count; i++)
                 {
-                    //if(hitColliders[i].gameObject.layer)
+                    if(hitColliders[i].gameObject.layer == 9) //9 is the Ghost layer
+                    {
+                        hitColliders[i].attachedRigidbody.velocity = (new Vector2(transform.right.x, transform.right.y) * knockbackAmount);
+                        Debug.Log(hitColliders[i]);
+                    }
                 }
             }
 
