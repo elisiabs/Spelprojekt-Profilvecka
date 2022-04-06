@@ -19,14 +19,15 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            EscPauseMenu.SetActive(!EscPauseMenu.activeInHierarchy);
+        {   
             EscPauseButton.SetActive(!EscPauseButton.activeInHierarchy);
+            EscPauseMenu.SetActive(!EscPauseMenu.activeInHierarchy);
         }
     }
 
     public void Continue()
     {
+        EscPauseButton.SetActive(true);
         EscPauseMenu.SetActive(false);
     }
 
