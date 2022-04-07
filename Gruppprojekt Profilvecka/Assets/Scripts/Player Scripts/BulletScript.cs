@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
     {
         StartCoroutine(DestroyBulletAfterTime(bulletDespawnTime));
     }
-    /*
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.isTrigger)
@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    */
+    
     IEnumerator DestroyBulletAfterTime(int seconds)
     {
         yield return new WaitForSeconds(seconds);
