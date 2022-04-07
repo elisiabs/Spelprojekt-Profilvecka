@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Destruktable : MonoBehaviour
+public class Destructible : MonoBehaviour
 {
     public Transform[] DoorPieces = new Transform[4];
 
@@ -21,7 +21,9 @@ public class Destruktable : MonoBehaviour
 
                 DoorPieces[i].parent = null;
 
-                Destroy(DoorPieces[i].gameObject, 2f);
+                float despawnTime = Random.Range(2f, 2.5f);
+
+                Destroy(DoorPieces[i].gameObject, despawnTime);
             }
             Destroy(gameObject);
         }
