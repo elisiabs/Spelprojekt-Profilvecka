@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Destructible : MonoBehaviour
 {
-    public Transform[] DoorPieces = new Transform[4];
+    public Transform[] Pieces = new Transform[0];
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,17 +13,17 @@ public class Destructible : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                Rigidbody2D rigidbody = DoorPieces[i].gameObject.AddComponent<Rigidbody2D>() as Rigidbody2D;
+                Rigidbody2D rigidbody = Pieces[i].gameObject.AddComponent<Rigidbody2D>() as Rigidbody2D;
                 rigidbody.AddForce(collision.transform.right * 10, ForceMode2D.Impulse);
 
-                BoxCollider2D boxCollider = DoorPieces[i].GetComponent<BoxCollider2D>();
-                boxCollider.size = boxCollider.size * 0.8f;
+                BoxCollider2D boxCollider = Pieces[i].GetComponent<BoxCollider2D>();
+                boxCollider.size *= 0.8f;
 
-                DoorPieces[i].parent = null;
+                Pieces[i].parent = null;
 
                 float despawnTime = Random.Range(2f, 2.5f);
 
-                Destroy(DoorPieces[i].gameObject, despawnTime);
+                Destroy(Pieces[i].gameObject, despawnTime);
             }
             Destroy(gameObject);
         }
