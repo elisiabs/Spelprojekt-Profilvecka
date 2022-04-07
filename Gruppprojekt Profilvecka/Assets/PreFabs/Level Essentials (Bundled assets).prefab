@@ -3180,9 +3180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6265586114492074369}
-  start: {fileID: 0}
-  end: {fileID: 0}
-  player: {fileID: 0}
+  start: {fileID: 5451726093708139323}
+  end: {fileID: 5451726092351084986}
+  player: {fileID: 7849382988624418182}
 --- !u!1 &9102393152115360676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,7 +3540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614807, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3213514092486141379, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_Size.x
