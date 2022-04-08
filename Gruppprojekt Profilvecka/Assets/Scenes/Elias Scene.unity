@@ -876,8 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1124536771}
-  start: {fileID: 0}
-  end: {fileID: 0}
+  start: {fileID: 878604446}
+  end: {fileID: 1598935685}
   player: {fileID: 5759073263968248702}
 --- !u!1 &1031806680
 GameObject:
