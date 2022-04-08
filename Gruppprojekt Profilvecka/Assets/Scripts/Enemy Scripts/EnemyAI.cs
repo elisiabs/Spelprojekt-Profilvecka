@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -36,7 +37,9 @@ public class EnemyAI : MonoBehaviour {
     // Elias modifikation(sprite):
     public SpriteRenderer sprite;
     public bool spotted = false;
-    
+    public bool hasAttacked = false;
+    public Animator animator;
+
     private void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -118,7 +121,6 @@ public class EnemyAI : MonoBehaviour {
                 pathIsEnded = false;
 
                 Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-                //Elias modifikation:
 
                 Vector2 diff = transform.position - target.position;
 
@@ -130,11 +132,16 @@ public class EnemyAI : MonoBehaviour {
                 {
                     sprite.flipX = true;
                 }
-                //Debug.Log(diff);
-                //Slut av Elias modifikation.
-                dir *= speed * Time.fixedDeltaTime;
 
-                if(spotted)
+
+                dir *= speed * Time.fixedDeltaTime;
+                
+                if(spotted && !hasAttacked &&(((Math.Abs(diff.x) + Math.Abs(diff.y))/2) < Math.Abs(1.5f)))
+                {
+                    hasAttacked = true;
+                    StartCoroutine(attack(dir));
+                }
+                else if(spotted && !hasAttacked)
                 {
                     rb.AddForce(dir, fMode);
                 }
@@ -143,6 +150,18 @@ public class EnemyAI : MonoBehaviour {
         
 
         }  
+    }
+    IEnumerator attack(Vector3 dir)
+    {
+        animator.SetTrigger("Charge");
+        rb.velocity *= 0.3f;
+        yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("Ready");
+        yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("Attack");
+        rb.AddForce(dir * 35, fMode);
+        yield return new WaitForSeconds(0.8f);
+        hasAttacked = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
