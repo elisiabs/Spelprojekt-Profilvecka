@@ -275,10 +275,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2456700081640289262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2922727633577614805}
+  m_Father: {fileID: 4030356155636882250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4247727866650978702
@@ -749,6 +749,7 @@ MonoBehaviour:
   bulletVelocity: 70
   cooldownSpeed: 1.2
   recoilAmount2: 200
+  knockbackAmount: 0
 --- !u!95 &3784742381821280059
 Animator:
   serializedVersion: 3
@@ -882,7 +883,7 @@ Transform:
   m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6073216952739111151}
+  - {fileID: 4030356155636882250}
   - {fileID: 2922727633182863092}
   - {fileID: 9117420628055505788}
   - {fileID: 6045467830226162717}
@@ -952,6 +953,7 @@ MonoBehaviour:
   moveSmooth: 0.08
   preventMovementFalloff: 1
   preventGravityFalloff: 0.5
+  jumpBufferTime: 0
   knockbackForce: {x: 0, y: 0}
 --- !u!114 &2922727633577614795
 MonoBehaviour:
@@ -1395,6 +1397,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6681613251310612822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4030356155636882250}
+  m_Layer: 0
+  m_Name: CameraPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4030356155636882250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681613251310612822}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6073216952739111151}
+  m_Father: {fileID: 2922727633577614805}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7068557301942400345
 GameObject:
   m_ObjectHideFlags: 0
