@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer leftLegSprite;
     public SpriteRenderer rightLegSprite;
     public bool canJump;
-    public bool inMenu = false;
 
     public float movementSpeed;
     public float jumpHeight;
@@ -21,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float preventMovementFalloff = 1f;
     public float preventGravityFalloff = 0.5f;
     public float jumpBufferTime;
+    public float coyoteTimeSeconds;
 
     public Vector2 knockbackForce = Vector2.zero;
 
@@ -32,11 +32,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!inMenu)
-        {
+        
+            Jumpable();
             Walk();
             Jump();
-        }
+        
     }
 
     private void Walk()
@@ -90,6 +90,12 @@ public class PlayerMovement : MonoBehaviour
         bool jumpInput = Input.GetButtonDown("Jump");
         bool jumpBuffer = jumpPressed && jumpLastPressed + jumpBufferTime > Time.time;
 
+        if(jumpPressed)
+        {
+            Debug.Log("Buffer " + (jumpLastPressed + jumpBufferTime));
+            Debug.Log("Time " + Time.time);
+        }
+
         if (jumpInput == true || jumpBuffer)
         {
             if (canJump)
@@ -99,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 canJump = false;
                 jumpPressed = false;
             }
-            else
+            else if(!jumpBuffer)
             {
                 jumpPressed = true;
                 jumpLastPressed = Time.time;
@@ -107,24 +113,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Jumpable()
     {
-        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        List<Collider2D> hitColliders = new List<Collider2D>();
+        int amountHit = feetCollider.OverlapCollider(contactFilter, hitColliders);
+        bool foundPlatform = false;
+        if (amountHit > 0)
         {
-            canJump = true;
-            StopCoroutine(JumpMargins(0));
+            for (int i = 0; i < hitColliders.Count; i++)
+            {
+                if (hitColliders[i].CompareTag("Platform") == true)
+                {
+                    canJump = true;
+                    foundPlatform = true;
+                }
+            }
+            if(foundPlatform == false)
+            {
+                StartCoroutine(CoyoteTime(coyoteTimeSeconds));
+            }
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" && collision.otherCollider == feetCollider)
-        {
-            StartCoroutine(JumpMargins(0.15f)); //TODO: not hardcode man 
-        }
-    }
-
-    IEnumerator JumpMargins(float seconds)
+    IEnumerator CoyoteTime(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         canJump = false;
