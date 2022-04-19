@@ -7,6 +7,7 @@ public class CatTutorial : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Animator animator;
     private int step = 0;
+    private bool playerWasClose = false;
     [SerializeField] private float speed;
     [SerializeField] private float[] steps;
 
@@ -18,6 +19,11 @@ public class CatTutorial : MonoBehaviour
     void Update()
     {
         if (checkPlayerClose())
+        {
+            playerWasClose = true;
+        }
+
+        if (playerWasClose)
         {
             if(step == 0)
             {
