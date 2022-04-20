@@ -25,18 +25,43 @@ public class CatTutorial : MonoBehaviour
 
         if (playerWasClose)
         {
-            if(step == 0)
+            switch (step)
             {
-                if(transform.position.x >= steps[0])
-                {
-                    animator.SetBool("Walk", false);
-                }
-                else
-                {
-                    Debug.Log("lol");
-                    animator.SetBool("Walk", true);
-                    transform.position = transform.position * speed * Time.deltaTime;
-                }
+                case (0):
+                    {
+                        if (transform.position.x >= steps[0])
+                        {
+                            animator.SetBool("Walk", false);
+                            step++;
+                            playerWasClose = false;
+                        }
+                        else
+                        {
+                            animator.SetBool("Walk", true);
+                            float vX = speed * Time.deltaTime;
+                            float vY = transform.position.y;
+                            transform.position = new Vector2(transform.position.x + vX, vY);
+                        }
+                        break;
+                    }
+                case (1):
+                    {
+                        if (transform.position.x >= steps[1])
+                        {
+                            step++;
+                            playerWasClose = false;
+                        }
+                        else
+                        {
+                            animator.SetTrigger("Jump");
+                        }
+                        break;
+                    }
+                case (2):
+                    {
+
+                        break;
+                    }
             }
         }
     }
