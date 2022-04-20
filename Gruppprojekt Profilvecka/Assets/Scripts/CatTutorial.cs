@@ -109,7 +109,7 @@ public class CatTutorial : MonoBehaviour
 
     private bool checkPlayerClose()
     {
-        if (transform.position.x - player.position.x <= 1)
+        if (transform.position.x - player.position.x <= 2)
         {
             return true;
         }
