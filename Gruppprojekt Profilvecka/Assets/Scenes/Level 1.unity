@@ -362,10 +362,10 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163595634}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ddacc65aa1b5bdd4c8a81132f4c7707b, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -402,10 +402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1136511634}
   animator: {fileID: 163595635}
-  speed: 1
+  speed: 10
   steps:
-  - 11
-  - 0
+  - 11.5
+  - 16
   - 0
   - 0
   - 0
@@ -24289,7 +24289,7 @@ PrefabInstance:
       objectReference: {fileID: 844116297}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: recoilAmount
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: recoilAmount2
@@ -24302,6 +24302,10 @@ PrefabInstance:
     - target: {fileID: 2471356260032469793, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: knockbackAmount
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
+      propertyPath: coyoteTime
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614794, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: jumpBufferTime
