@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Components")]
     public Rigidbody2D rb;
-    public Collider2D feetCollider;
-    public Animator animator;
-    public SpriteRenderer bodySprite;
-    public SpriteRenderer leftLegSprite;
-    public SpriteRenderer rightLegSprite;
-    public bool canJump;
+    [SerializeField] private Collider2D feetCollider;
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer bodySprite;
+    [SerializeField] private SpriteRenderer leftLegSprite;
+    [SerializeField] private SpriteRenderer rightLegSprite;
 
-    public float movementSpeed;
-    public float jumpHeight;
-    public float moveSmooth;
-    float move;
-    float previousKnockback;
-    public float preventMovementFalloff = 1f;
-    public float preventGravityFalloff = 0.5f;
-    public float jumpBufferTime;
-    public float coyoteTimeSeconds;
+    [Header("Variables")]
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float moveSmooth;
+    [SerializeField] private float jumpBufferTime;
+    [SerializeField] private float coyoteTime;
+    [Space]
+    [SerializeField] private bool canJump;
+    [SerializeField] private float preventMovementFalloff = 1f;
+    [SerializeField] private float preventGravityFalloff = 0.5f;
 
+    //Variables that do not need to be shown in the inspector.
+    private float move;
+    private float previousKnockback;
     public Vector2 knockbackForce = Vector2.zero;
-
     bool jumpPressed = false;
     float jumpLastPressed = 0f;
 
@@ -92,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
 
         if(jumpPressed)
         {
-            Debug.Log("Buffer " + (jumpLastPressed + jumpBufferTime));
-            Debug.Log("Time " + Time.time);
+            //Debug.Log("Buffer " + (jumpLastPressed + jumpBufferTime));
+            //Debug.Log("Time " + Time.time);
         }
 
         if (jumpInput == true || jumpBuffer)
@@ -131,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if(foundPlatform == false)
             {
-                StartCoroutine(CoyoteTime(coyoteTimeSeconds));
+                StartCoroutine(CoyoteTime(coyoteTime));
             }
         }
     }
