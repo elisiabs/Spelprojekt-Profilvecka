@@ -5,37 +5,38 @@ using UnityEngine.UI;
 
 public class ShooterScript : MonoBehaviour
 {
-    [Header("GameObjects")]
+    [Header("Unlockables")]
+    public bool Shooter1Unlocked = false;
+    public bool Shooter2Unlocked = false;
+    [Space]
+    [Header("Components/GameObjects")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject pivotPoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject bulletSpawn;
-    [SerializeField] private BoxCollider2D pushCollider;
     [SerializeField] private GameObject backLightSprite;
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     [SerializeField] private GameObject light;
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
-    [SerializeField] private PlayerMovement movement;
-
-    [Header("GameObjects used only for shooter change")]
     [SerializeField] private GameObject Shooter1;
     [SerializeField] private GameObject Shooter2;
-
-    [Header("Components")]
+    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private BoxCollider2D pushCollider;
     [SerializeField] private Slider slider;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D playerRb;
-
-    [Header("Variables")]
-    private float angle;
-    private float cooldown;
+    [Space]
     [Header("Shooter 1 Variables")]
     [SerializeField] private float recoilAmount;
     [SerializeField] private float bulletVelocity;
     [SerializeField] private float cooldownSpeed;
+    [Space]
     [Header("Shooter 2 Variables")]
     [SerializeField] private float recoilAmount2;
     [SerializeField] private float knockbackAmount;
+    //Private variables that do not appear in inspector:
+    private float cooldown;
+    private float angle;
 
     // Update is called once per frame
     void Update()
@@ -81,12 +82,12 @@ public class ShooterScript : MonoBehaviour
 
     public void SwitchWeapon()
     {
-        if (Input.GetButtonDown("Fire1") && cooldown >= 1) //Left click
+        if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1Unlocked) //Left click
         {
             Shooter1.SetActive(true);
             Shooter2.SetActive(false);
         }
-        else if (Input.GetButtonDown("Fire2") && cooldown >= 1) //Right click //TODO: implement game manager to manage if player has unlocked this yet.
+        else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2Unlocked) //Right click
         {
             Shooter1.SetActive(false);
             Shooter2.SetActive(true);
@@ -95,7 +96,7 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
-        if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy)
+        if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy && Shooter1Unlocked)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
             obj.GetComponent<Rigidbody2D>().velocity = transform.right * bulletVelocity;
@@ -106,7 +107,7 @@ public class ShooterScript : MonoBehaviour
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
         }
-        else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy)
+        else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy && Shooter2Unlocked)
         {
             cooldown = 0;
             playerRb.velocity = Vector3.zero;
