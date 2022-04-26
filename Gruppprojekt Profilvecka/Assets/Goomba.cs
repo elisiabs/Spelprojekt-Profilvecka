@@ -20,6 +20,8 @@ public class Goomba : MonoBehaviour
     public bool rightGrounded;
     public GameObject groundCheck;
 
+    public float enemyWidth;
+
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -51,60 +53,23 @@ public class Goomba : MonoBehaviour
 
     public void CheckGrounded()
     {
-        RaycastHit2D hitground = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, groundDistance, ground);
+        Vector3 offsetPosition = transform.position + new Vector3(enemyWidth, 0, 0) * movingDirection;
 
+        RaycastHit2D hitground = Physics2D.Raycast(offsetPosition, Vector2.down, groundDistance, ground);
 
-
-        RaycastHit2D hitleft = Physics2D.Raycast(leftCheck.transform.position, Vector2.down, groundDistance, ground);
-        RaycastHit2D hitWallLeft = Physics2D.Raycast(leftCheck.transform.position, Vector2.left, wallDistance, ground);
-
-        Debug.Log("jj");
-        Debug.DrawLine(leftCheck.transform.position, leftCheck.transform.position + Vector3.left * wallDistance, Color.red);
-        Debug.DrawLine(leftCheck.transform.position, leftCheck.transform.position + Vector3.down * groundDistance, Color.cyan);
-
-        if (movingLeft && hitWallLeft.transform != null)
+        if(hitground.transform == null)
         {
-            movingLeft = false;
+            movingDirection *= -1;
+
+            if(movingDirection > 0)
+            {
+                movingLeft = false;
+            }
+            else if(movingDirection < 0)
+            {
+                movingLeft = true;
+            }
         }
-
-        if (hitleft.transform != null)
-        {
-            leftGrounded = true;
-        }
-
-        else
-        {
-            leftGrounded = false;
-            movingLeft = false;
-        }
-
-
-        RaycastHit2D hitRight = Physics2D.Raycast(rightCheck.transform.position, Vector2.down, groundDistance, ground);
-        RaycastHit2D hitWallRight = Physics2D.Raycast(rightCheck.transform.position, Vector2.right, wallDistance, ground);
-
-        Debug.DrawLine(rightCheck.transform.position, rightCheck.transform.position + Vector3.right * wallDistance, Color.red);
-        Debug.DrawLine(rightCheck.transform.position, rightCheck.transform.position + Vector3.down * groundDistance, Color.cyan);
-
-        if (hitRight.transform != null)
-        {
-            rightGrounded = true;
-        }
-
-        else
-        {
-            rightGrounded = false;
-            movingLeft = true;
-        }
-
-        if (hitWallLeft.transform != null)
-        {
-            movingLeft = false;
-        }
-        if (hitWallRight.transform != null)
-        {
-            movingLeft = true;
-        }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -124,7 +89,7 @@ public class Goomba : MonoBehaviour
 
         Gizmos.color = Color.red;
 
-        Vector3 widthObject = new Vector3(width, 0, 0);
+        Vector3 widthObject = new Vector3(enemyWidth, 0, 0);
 
         Vector3 offsetPosition = transform.position + widthObject * movingDirection;
         Gizmos.DrawWireSphere(offsetPosition, 0.1f);

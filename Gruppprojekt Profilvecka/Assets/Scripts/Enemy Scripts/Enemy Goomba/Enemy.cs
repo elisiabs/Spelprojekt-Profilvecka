@@ -19,13 +19,13 @@ public class Enemy : MonoBehaviour
     public bool leftGrounded;
     public bool rightGrounded;
 
-    private GameManager gameManager;
+    //private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D> ();
-        gameManager = FindObjectOfType<GameManager>();
+        //gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.Respawn();
+            //gameManager.Respawn();
         }
     }
 

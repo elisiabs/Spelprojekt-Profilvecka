@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerMovement playermovement;
-    public PlayerHealth playerhealth;
+    public PlayerMovement playerMovement;
+    public PlayerHealth playerHealth;
     public BulletScript bulletScript;
-    public ShooterScript shooterscript;
+    public ShooterScript shooterScript;
 
 }
