@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ItemGet : MonoBehaviour
 {
-    [SerializeField] Animator playerAnimator;
-    
+    private Animator playerAnimator;
+
+    private void Start()
+    {
+        playerAnimator = GameManager.Instance.player.bodyAnimator;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col);
-        Debug.Log(col.gameObject.tag);
-        if (col.gameObject.tag.Contains("Player"))
+        //Debug.Log(col);
+        //Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag.Contains("Player") && !col.isTrigger)
         {
             col.gameObject.GetComponentInChildren<ShooterScript>().Shooter1Unlocked = true;
             playerAnimator.SetTrigger("Item");
@@ -20,5 +24,4 @@ public class ItemGet : MonoBehaviour
             
         }
     }
-    
 }
