@@ -44,6 +44,7 @@ public class EnemyAI : MonoBehaviour {
 
     private void Start()
     {
+        target = GameManager.Instance.player.playermovement.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -137,8 +138,6 @@ public class EnemyAI : MonoBehaviour {
 
 
                 dir *= speed * Time.fixedDeltaTime;
-
-                Vector2 playerDir = transform.position - target.position;
                 
                 if(spotted && !hasAttacked &&(((Math.Abs(diff.x) + Math.Abs(diff.y))/2) < Math.Abs(1.5f)))
                 {
@@ -155,7 +154,7 @@ public class EnemyAI : MonoBehaviour {
 
         }  
     }
-    IEnumerator attack(Vector3 dir)
+    IEnumerator attack(Vector3 playerDir)
     {
         animator.SetTrigger("Charge");
         rb.velocity *= 0.3f;
@@ -163,7 +162,7 @@ public class EnemyAI : MonoBehaviour {
         animator.SetTrigger("Ready");
         yield return new WaitForSeconds(0.5f);
         animator.SetTrigger("Attack");
-        rb.AddForce(dir * 35, fMode);
+        rb.AddForce(playerDir * 35, fMode);
         yield return new WaitForSeconds(0.8f);
         hasAttacked = false;
     }
