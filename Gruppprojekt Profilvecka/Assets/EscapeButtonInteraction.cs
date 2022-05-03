@@ -7,7 +7,7 @@ public class EscapeButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPoi
     private ShooterScript shooterScript;
     void Start()
     {
-        shooterScript = FindObjectOfType<ShooterScript>();
+        shooterScript = GameManager.Instance.player.shooterscript;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
