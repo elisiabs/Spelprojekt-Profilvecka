@@ -8,6 +8,8 @@ public class ShooterScript : MonoBehaviour
     [Header("Unlockables")]
     public bool Shooter1Unlocked = false;
     public bool Shooter2Unlocked = false;
+
+    public bool canShoot = true;
     [Space]
     [Header("Components/GameObjects")]
     [SerializeField] private GameObject player;
@@ -37,6 +39,12 @@ public class ShooterScript : MonoBehaviour
     //Private variables that do not appear in inspector:
     private float cooldown;
     private float angle;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -96,6 +104,11 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
+        if (Time.timeScale == 0 || !canShoot)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy && Shooter1Unlocked)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
@@ -106,6 +119,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Pistol Sound");
         }
         else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy && Shooter2Unlocked)
         {
@@ -131,6 +146,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Second Gun");
         }
     }
 

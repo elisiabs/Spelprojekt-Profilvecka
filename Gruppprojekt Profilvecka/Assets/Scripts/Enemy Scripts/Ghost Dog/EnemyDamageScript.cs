@@ -14,7 +14,7 @@ public class EnemyDamageScript : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float redFlashSeconds;
 
-    private void Update()
+    private void Start()
     {
         gameManager = GameManager.Instance;
         player = gameManager.player.playerhealth;
