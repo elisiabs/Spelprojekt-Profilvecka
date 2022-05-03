@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public PlayerMovement playermovement;
     public PlayerHealth playerhealth;
-    public BulletScript bulletScript;
     public ShooterScript shooterscript;
 
 }

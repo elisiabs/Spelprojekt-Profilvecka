@@ -14,8 +14,11 @@ public class CatTutorial : MonoBehaviour
 
     //Warning: this cat is quite hardcoded, my excuse is that it is only used once to do only one thing.
 
+
+    
     void Update()
     {
+
         if (checkPlayerClose())
         {
             playerWasClose = true;
@@ -53,7 +56,6 @@ public class CatTutorial : MonoBehaviour
                             currentClip = animator.GetCurrentAnimatorClipInfo(0);
                             StartCoroutine(waitForJumpAnim(currentClip[0].clip.length));
                             */
-                            StartCoroutine(waitForJumpAnim(1.683f));
                         }
                         break;
                     }
@@ -81,7 +83,6 @@ public class CatTutorial : MonoBehaviour
                         {
                             waitingForJumpAnim = true;
                             animator.SetTrigger("Jump");
-                            StartCoroutine(waitForJumpAnim(1.683f));
                         }
                         break;
                     }
@@ -119,10 +120,16 @@ public class CatTutorial : MonoBehaviour
         }
     }
 
-    IEnumerator waitForJumpAnim(float seconds)
+    Vector2 positionBeforeJump;
+
+    public void catBeforeJump()
     {
-        yield return new WaitForSeconds(seconds);
-        transform.position = new Vector2(transform.position.x + 6.5f, transform.position.y);
+        positionBeforeJump = transform.position;
+    }
+    
+    public void catHasJump()
+    {
+        transform.position = new Vector2(positionBeforeJump.x + 6.5f, transform.position.y);
         step++;
         playerWasClose = false;
     }

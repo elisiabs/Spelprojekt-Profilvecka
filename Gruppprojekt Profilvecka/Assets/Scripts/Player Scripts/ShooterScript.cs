@@ -39,6 +39,12 @@ public class ShooterScript : MonoBehaviour
     //Private variables that do not appear in inspector:
     private float cooldown;
     private float angle;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -113,6 +119,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Pistol Sound");
         }
         else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy && Shooter2Unlocked)
         {
@@ -138,6 +146,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Second Gun");
         }
     }
 

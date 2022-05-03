@@ -35,13 +35,16 @@ public class EnemyAI : MonoBehaviour {
     private int currentWaypoint = 0;
 
     // Elias modifikation(sprite):
-    public SpriteRenderer sprite;
-    public bool spotted = false;
-    public bool hasAttacked = false;
-    public Animator animator;
+    [Header("Elias Modifikationer:")]
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private bool spotted = false;
+    [SerializeField] private bool hasAttacked = false;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float chargeSpeedMultiplier;
 
     private void Start()
     {
+        target = GameManager.Instance.player.playermovement.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -139,7 +142,7 @@ public class EnemyAI : MonoBehaviour {
                 if(spotted && !hasAttacked &&(((Math.Abs(diff.x) + Math.Abs(diff.y))/2) < Math.Abs(1.5f)))
                 {
                     hasAttacked = true;
-                    StartCoroutine(attack(dir));
+                    StartCoroutine(attack((target.position-transform.position).normalized * chargeSpeedMultiplier));
                 }
                 else if(spotted && !hasAttacked)
                 {
@@ -151,7 +154,7 @@ public class EnemyAI : MonoBehaviour {
 
         }  
     }
-    IEnumerator attack(Vector3 dir)
+    IEnumerator attack(Vector3 playerDir)
     {
         animator.SetTrigger("Charge");
         rb.velocity *= 0.3f;
@@ -159,7 +162,7 @@ public class EnemyAI : MonoBehaviour {
         animator.SetTrigger("Ready");
         yield return new WaitForSeconds(0.5f);
         animator.SetTrigger("Attack");
-        rb.AddForce(dir * 35, fMode);
+        rb.AddForce(playerDir * 35, fMode);
         yield return new WaitForSeconds(0.8f);
         hasAttacked = false;
     }

@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class EnemyDamageScript : MonoBehaviour
 {
-    public PlayerHealth player;
-    public SpriteRenderer sprite;
-   
-    public float health;
-    public float damage;
-    public float redFlashSeconds;
+    private PlayerHealth player;
+    [SerializeField] private SpriteRenderer sprite;
+    private GameManager gameManager;
 
-    private void Update()
+    [SerializeField] private Collider2D physicalCollider;
+
+    [SerializeField] private float health;
+    [SerializeField] private float damage;
+    [SerializeField] private float redFlashSeconds;
+
+    private void Start()
     {
-        
+        gameManager = GameManager.Instance;
+        player = gameManager.player.playerhealth;
     }
 
-    private void damageEnemy(int damage)
+    public void DamageEnemy(int damage)
     {
         health -= damage;
         StartCoroutine(RedFlash(redFlashSeconds));
@@ -35,17 +39,15 @@ public class EnemyDamageScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("Collision");
         if (col.gameObject.tag == "Player")
         {
             player.damagePlayer(damage);
         }
-
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "PlayerProjectile")
+        else if(col.gameObject.tag == "PlayerProjectile")
         {
-            damageEnemy(1);
+            Debug.Log("träffad.");
+            DamageEnemy(1);
         }
     }
 }

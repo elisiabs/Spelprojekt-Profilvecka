@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4334963702336397119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -648.22, y: -532.11, z: 1042.1255}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4669785898247787087}
@@ -247,6 +247,9 @@ MonoBehaviour:
   nextWaypointDistance: 4.56
   sprite: {fileID: 4334963702336397107}
   spotted: 0
+  hasAttacked: 0
+  animator: {fileID: 4334963702336397109}
+  chargeSpeedMultiplier: 15
 --- !u!95 &4334963702336397109
 Animator:
   serializedVersion: 3
@@ -280,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   sprite: {fileID: 4334963702336397107}
-  circleCollider: {fileID: 2889522061303376240}
+  physicalCollider: {fileID: 0}
   health: 2
   damage: 1
   redFlashSeconds: 0.1
