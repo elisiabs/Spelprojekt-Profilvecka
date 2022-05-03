@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public PlayerMovement player;
-    public ShooterScript shooter;
+    private ShooterScript shooter;
     public GameObject EscPauseMenu;
     public GameObject EscPauseButton;
 
