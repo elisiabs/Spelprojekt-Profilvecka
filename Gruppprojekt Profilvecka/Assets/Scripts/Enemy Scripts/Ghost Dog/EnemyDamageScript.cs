@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class EnemyDamageScript : MonoBehaviour
 {
-    public PlayerHealth player;
-    public SpriteRenderer sprite;
+    private PlayerHealth player;
+    [SerializeField] private SpriteRenderer sprite;
+    private GameManager gameManager;
 
-    [SerializeField] Collider2D physicalCollider;
+    [SerializeField] private Collider2D physicalCollider;
 
-    public float health;
-    public float damage;
-    public float redFlashSeconds;
+    [SerializeField] private float health;
+    [SerializeField] private float damage;
+    [SerializeField] private float redFlashSeconds;
 
     private void Update()
     {
-        
+        gameManager = GameManager.Instance;
+        player = gameManager.player.playerhealth;
     }
 
     public void DamageEnemy(int damage)
