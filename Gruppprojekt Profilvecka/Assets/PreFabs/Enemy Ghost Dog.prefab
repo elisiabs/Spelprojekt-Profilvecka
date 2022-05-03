@@ -281,9 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035be8e665c9a354bb3fe5af053d8e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   sprite: {fileID: 4334963702336397107}
-  physicalCollider: {fileID: 0}
+  physicalCollider: {fileID: 4334963702336397111}
   health: 2
   damage: 1
   redFlashSeconds: 0.1
