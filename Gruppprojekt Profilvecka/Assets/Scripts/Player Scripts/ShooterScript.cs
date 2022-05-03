@@ -43,7 +43,7 @@ public class ShooterScript : MonoBehaviour
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = GameManager.Instance.audioManager;
     }
 
     // Update is called once per frame
