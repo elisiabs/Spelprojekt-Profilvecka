@@ -6,7 +6,9 @@ public class EnemyDamageScript : MonoBehaviour
 {
     public PlayerHealth player;
     public SpriteRenderer sprite;
-   
+
+    [SerializeField] Collider2D physicalCollider;
+
     public float health;
     public float damage;
     public float redFlashSeconds;
@@ -16,7 +18,7 @@ public class EnemyDamageScript : MonoBehaviour
         
     }
 
-    private void damageEnemy(int damage)
+    public void DamageEnemy(int damage)
     {
         health -= damage;
         StartCoroutine(RedFlash(redFlashSeconds));
@@ -35,17 +37,21 @@ public class EnemyDamageScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("Collision");
         if (col.gameObject.tag == "Player")
         {
             player.damagePlayer(damage);
         }
-
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "PlayerProjectile")
+        else if(col.gameObject.tag == "PlayerProjectile")
         {
-            damageEnemy(1);
+            Debug.Log("träffad.");
+            DamageEnemy(1);
         }
     }
+    
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        
+    }
+    
 }
