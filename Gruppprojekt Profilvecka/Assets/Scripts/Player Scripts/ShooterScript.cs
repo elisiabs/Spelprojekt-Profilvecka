@@ -8,6 +8,8 @@ public class ShooterScript : MonoBehaviour
     [Header("Unlockables")]
     public bool Shooter1Unlocked = false;
     public bool Shooter2Unlocked = false;
+
+    public bool canShoot = true;
     [Space]
     [Header("Components/GameObjects")]
     [SerializeField] private GameObject player;
@@ -96,6 +98,11 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
+        if (Time.timeScale == 0 || !canShoot)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy && Shooter1Unlocked)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
