@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Player player;
-
-    private Vector2 spawnPosition;
+    [HideInInspector] public AudioManager audioManager;
 
     public static GameManager Instance;
 
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        spawnPosition = player.transform.position;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void Respawn()
