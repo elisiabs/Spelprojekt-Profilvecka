@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerMovement playermovement;
-    public PlayerHealth playerhealth;
-    public ShooterScript shooterscript;
-
+    [HideInInspector] public PlayerMovement playermovement = FindObjectOfType<PlayerMovement>();
+    [HideInInspector] public PlayerHealth playerhealth = FindObjectOfType<PlayerHealth>();
+    [HideInInspector] public ShooterScript shooterscript = FindObjectOfType<ShooterScript>();
 }
