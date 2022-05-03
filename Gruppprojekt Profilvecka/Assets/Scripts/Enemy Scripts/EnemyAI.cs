@@ -35,10 +35,12 @@ public class EnemyAI : MonoBehaviour {
     private int currentWaypoint = 0;
 
     // Elias modifikation(sprite):
-    public SpriteRenderer sprite;
-    public bool spotted = false;
-    public bool hasAttacked = false;
-    public Animator animator;
+    [Header("Elias Modifikationer:")]
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private bool spotted = false;
+    [SerializeField] private bool hasAttacked = false;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float chargeSpeedMultiplier;
 
     private void Start()
     {
@@ -135,11 +137,13 @@ public class EnemyAI : MonoBehaviour {
 
 
                 dir *= speed * Time.fixedDeltaTime;
+
+                Vector2 playerDir = transform.position - target.position;
                 
                 if(spotted && !hasAttacked &&(((Math.Abs(diff.x) + Math.Abs(diff.y))/2) < Math.Abs(1.5f)))
                 {
                     hasAttacked = true;
-                    StartCoroutine(attack(dir));
+                    StartCoroutine(attack((target.position-transform.position).normalized * chargeSpeedMultiplier));
                 }
                 else if(spotted && !hasAttacked)
                 {

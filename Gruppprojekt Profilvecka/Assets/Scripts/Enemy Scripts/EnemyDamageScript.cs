@@ -48,10 +48,4 @@ public class EnemyDamageScript : MonoBehaviour
             DamageEnemy(1);
         }
     }
-    
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        
-    }
-    
 }
