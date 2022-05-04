@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemGet : MonoBehaviour
 {
-    [SerializeField] private string whichShooter;
+    [SerializeField][Tooltip("Current possible inputs are: 'Shooter1' or 'Shooter2'.")]
+    private string whichShooter;
     private Animator playerAnimator;
 
     private void Start()
