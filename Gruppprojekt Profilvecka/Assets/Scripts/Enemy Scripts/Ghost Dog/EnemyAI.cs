@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour {
                 if(spotted && !hasAttacked &&(((Math.Abs(diff.x) + Math.Abs(diff.y))/2) < Math.Abs(1.5f)))
                 {
                     hasAttacked = true;
-                    StartCoroutine(attack((target.position-transform.position).normalized * chargeSpeedMultiplier));
+                    StartCoroutine(attack());
                 }
                 else if(spotted && !hasAttacked)
                 {
@@ -154,7 +154,7 @@ public class EnemyAI : MonoBehaviour {
 
         }  
     }
-    IEnumerator attack(Vector3 playerDir)
+    IEnumerator attack()
     {
         animator.SetTrigger("Charge");
         rb.velocity *= 0.3f;
@@ -162,6 +162,7 @@ public class EnemyAI : MonoBehaviour {
         animator.SetTrigger("Ready");
         yield return new WaitForSeconds(0.5f);
         animator.SetTrigger("Attack");
+        Vector2 playerDir = (target.position - transform.position).normalized * chargeSpeedMultiplier;
         rb.AddForce(playerDir * 35, fMode);
         yield return new WaitForSeconds(0.8f);
         hasAttacked = false;

@@ -249,7 +249,7 @@ MonoBehaviour:
   spotted: 0
   hasAttacked: 0
   animator: {fileID: 4334963702336397109}
-  chargeSpeedMultiplier: 15
+  chargeSpeedMultiplier: 25
 --- !u!95 &4334963702336397109
 Animator:
   serializedVersion: 3
