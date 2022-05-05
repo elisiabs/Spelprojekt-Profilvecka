@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator bodyAnimator;
     [HideInInspector] public Animator shooterAnimator;
 
-    private void Start()
+    private void Awake()
     {
         playermovement = FindObjectOfType<PlayerMovement>();
         playerhealth = FindObjectOfType<PlayerHealth>();
