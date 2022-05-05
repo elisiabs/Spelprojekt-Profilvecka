@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemGet : MonoBehaviour
 {
+    [SerializeField][Tooltip("Current possible inputs are: 'Shooter1' or 'Shooter2'.")]
+    private string whichShooter;
     private Animator playerAnimator;
 
     private void Start()
@@ -13,15 +15,12 @@ public class ItemGet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //Debug.Log(col);
-        //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag.Contains("Player") && !col.isTrigger)
         {
-            col.gameObject.GetComponentInChildren<ShooterScript>().Shooter1Unlocked = true;
+            GameManager.Instance.player.shooterscript.UnlockWeapon(whichShooter);
             playerAnimator.SetTrigger("Item");
             Debug.Log("Gun unlocked trigger");
             Destroy(gameObject);
-            
         }
     }
 }

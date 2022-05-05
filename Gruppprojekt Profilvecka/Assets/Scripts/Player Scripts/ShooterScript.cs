@@ -53,6 +53,7 @@ public class ShooterScript : MonoBehaviour
         SwitchWeapon();
         PlayerInput();
 
+        //The stuff under this text should really not be here...
         if (cooldown < 1)
         {
             cooldown = cooldown + (cooldownSpeed * Time.deltaTime);
@@ -156,5 +157,26 @@ public class ShooterScript : MonoBehaviour
         light.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         light.SetActive(false);
+    }
+
+    public void UnlockWeapon(string whichShooter)
+    {
+        if(whichShooter == "Shooter1") //You will never unlock anything before shooter1.
+        {
+            Shooter1Unlocked = true;
+
+            Shooter1.SetActive(true);
+        }
+        else if(whichShooter == "Shooter2") //You will never unlock shooter2 before shooter1.
+        {
+            Shooter2Unlocked = true;
+
+            Shooter1.SetActive(false);
+            Shooter2.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Incorrect Input for UnlockWeapon method in ShooterScript.cs\nMethod was called from ItemGet.cs");
+        }
     }
 }

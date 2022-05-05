@@ -6,7 +6,7 @@ public class CatTutorial : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private Animator animator;
-    [SerializeField] private int step = 0;
+     public int step = 0;
     [SerializeField] private bool playerWasClose = false;
     [SerializeField] private float speed;
     [SerializeField] private float[] checkPoints;
@@ -51,11 +51,6 @@ public class CatTutorial : MonoBehaviour
                         {
                             waitingForJumpAnim = true;
                             animator.SetTrigger("Jump");
-                            /*
-                            AnimatorClipInfo[] currentClip;
-                            currentClip = animator.GetCurrentAnimatorClipInfo(0);
-                            StartCoroutine(waitForJumpAnim(currentClip[0].clip.length));
-                            */
                         }
                         break;
                     }
@@ -108,7 +103,7 @@ public class CatTutorial : MonoBehaviour
         }
     }
 
-    private bool checkPlayerClose()
+    public bool checkPlayerClose()
     {
         if (transform.position.x - player.position.x <= 2)
         {
