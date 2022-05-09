@@ -15,6 +15,7 @@ public class ProgressScript : MonoBehaviour
     void Start()
     {
         levelDistance = CalculateDistance("start");
+        player = GameManager.Instance.player.playerMovement.gameObject.transform;
     }
 
     // Update is called once per frame
