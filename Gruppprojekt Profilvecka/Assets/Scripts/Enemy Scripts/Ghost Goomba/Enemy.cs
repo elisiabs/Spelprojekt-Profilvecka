@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D> ();
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -106,7 +105,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.Respawn();
+            GameManager.Instance.player.playerHealth.damagePlayer(1);
         }
     }
 
