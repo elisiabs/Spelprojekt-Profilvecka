@@ -329,42 +329,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &49821294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 49821295}
-  m_Layer: 5
-  m_Name: Mouse Parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &49821295
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49821294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1979003287}
-  m_Father: {fileID: 98320602}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &75468331
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +490,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 49821295}
+  - {fileID: 1979003287}
   - {fileID: 1893717345}
   m_Father: {fileID: 453682451}
   m_RootOrder: 2
@@ -38467,8 +38431,10 @@ MonoBehaviour:
   aimPrompt: {fileID: 98320601}
   shooter1Prompt: {fileID: 1525368869}
   shooter2Prompt: {fileID: 420193133}
-  faded: 0
-  fadeSpeed: 2
+  imageFadeIn: {fileID: 7400000, guid: 6ca748a7deb4f6a4b85b970fc823a0b8, type: 2}
+  imageFadeOut: {fileID: 7400000, guid: cb9df8d7d33eed348ad577dcd51a4187, type: 2}
+  textFadeIn: {fileID: 7400000, guid: 0fce869551f2bf049aa776164585cc10, type: 2}
+  textFadeOut: {fileID: 7400000, guid: d967039a64fb79d448d036d9b32de5a2, type: 2}
 --- !u!1 &489906183
 GameObject:
   m_ObjectHideFlags: 0
@@ -48900,7 +48866,6 @@ GameObject:
   - component: {fileID: 1979003287}
   - component: {fileID: 1979003290}
   - component: {fileID: 1979003289}
-  - component: {fileID: 1979003288}
   m_Layer: 5
   m_Name: Mouse
   m_TagString: Untagged
@@ -48919,30 +48884,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 49821295}
+  m_Father: {fileID: 98320602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42.5, y: -272}
+  m_AnchoredPosition: {x: -40.499992, y: -272}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!111 &1979003288
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979003286}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 0bad40b27535f384bac6094886e2835d, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 0bad40b27535f384bac6094886e2835d, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &1979003289
 MonoBehaviour:
   m_ObjectHideFlags: 0
