@@ -17,7 +17,7 @@ public class EnemyDamageScript : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
-        player = gameManager.player.playerhealth;
+        player = gameManager.player.playerHealth;
     }
 
     public void DamageEnemy(int damage)

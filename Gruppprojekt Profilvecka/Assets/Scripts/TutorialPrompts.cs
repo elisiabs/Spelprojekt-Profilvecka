@@ -25,13 +25,12 @@ public class TutorialPrompts : MonoBehaviour
     private bool hideJump = false;
     private bool showAim = true;
     private bool hideShooter1 = false;
-    private bool showShooter2 = false;
 
     // Start is called before the first frame update
     void Start()
     {
         cat = FindObjectOfType<CatTutorial>();
-        shooterScript = GameManager.Instance.player.shooterscript;
+        shooterScript = GameManager.Instance.player.shooterScript;
     }
 
     // Update is called once per frame
@@ -44,7 +43,7 @@ public class TutorialPrompts : MonoBehaviour
 
         if (showWalk)
         {
-            if (GameManager.Instance.player.playermovement.transform.position.y <= 3 && !catClose)
+            if (GameManager.Instance.player.playerMovement.transform.position.y <= 3 && !catClose)
             {
                 FadeInAnimation(walkPrompt.transform);
                 showWalk = false;
@@ -98,22 +97,7 @@ public class TutorialPrompts : MonoBehaviour
                 hideShooter1 = true;
             }
         }
-        /*
-        if (GameManager.Instance.player.shooterscript.Shooter2Unlocked)
-        {
-            shooter1Prompt.SetActive(false);
-            shooter2Prompt.SetActive(true);
-            FadeInAnimation(shooter2Prompt.transform);
-        }
-        if (GameManager.Instance.player.shooterscript.Shooter2Unlocked && Input.GetButtonDown("Fire2"))
-        {
-            fire2 = true;
-        }
-        if (fire2)
-        {
-            FadeOutAnimation(shooter2Prompt.transform);
-        }
-        */
+
     }
     
     IEnumerator hideAim (float seconds)

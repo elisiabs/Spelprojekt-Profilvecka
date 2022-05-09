@@ -17,7 +17,7 @@ public class ItemGet : MonoBehaviour
     {
         if (col.gameObject.tag.Contains("Player") && !col.isTrigger)
         {
-            GameManager.Instance.player.shooterscript.UnlockWeapon(whichShooter);
+            GameManager.Instance.player.shooterScript.UnlockWeapon(whichShooter);
             playerAnimator.SetTrigger("Item");
             //Debug.Log("Gun unlocked trigger");
             Destroy(gameObject);

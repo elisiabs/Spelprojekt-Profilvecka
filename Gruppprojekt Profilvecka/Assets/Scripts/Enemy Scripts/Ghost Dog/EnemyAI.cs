@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour {
 
     private void Start()
     {
-        target = GameManager.Instance.player.playermovement.transform;
+        target = GameManager.Instance.player.playerMovement.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
