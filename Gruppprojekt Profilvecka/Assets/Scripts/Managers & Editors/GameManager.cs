@@ -28,7 +28,15 @@ public class GameManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
     }
 
-    public void Respawn()
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void LoadMenu()
     {
         SceneManager.LoadScene(0);
     }
