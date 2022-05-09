@@ -26,7 +26,6 @@ public class Goomba : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -58,7 +57,6 @@ public class Goomba : MonoBehaviour
         RaycastHit2D hitleft = Physics2D.Raycast(leftCheck.transform.position, Vector2.down, groundDistance, ground);
         RaycastHit2D hitWallLeft = Physics2D.Raycast(leftCheck.transform.position, Vector2.left, wallDistance, ground);
 
-        Debug.Log("jj");
         Debug.DrawLine(leftCheck.transform.position, leftCheck.transform.position + Vector3.left * wallDistance, Color.red);
         Debug.DrawLine(leftCheck.transform.position, leftCheck.transform.position + Vector3.down * groundDistance, Color.cyan);
 
@@ -111,7 +109,7 @@ public class Goomba : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.Respawn();
+            GameManager.Instance.player.playerHealth.damagePlayer(1);
         }
     }
 
