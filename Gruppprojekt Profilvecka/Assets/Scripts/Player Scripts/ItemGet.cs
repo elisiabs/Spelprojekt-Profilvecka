@@ -19,7 +19,7 @@ public class ItemGet : MonoBehaviour
         {
             GameManager.Instance.player.shooterscript.UnlockWeapon(whichShooter);
             playerAnimator.SetTrigger("Item");
-            Debug.Log("Gun unlocked trigger");
+            //Debug.Log("Gun unlocked trigger");
             Destroy(gameObject);
         }
     }

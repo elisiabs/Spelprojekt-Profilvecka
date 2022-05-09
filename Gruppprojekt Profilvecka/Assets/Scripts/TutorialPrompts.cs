@@ -53,7 +53,7 @@ public class TutorialPrompts : MonoBehaviour
         else if (catClose && !hideJump)
         {
             hideJump = true;
-            Debug.Log("catclose");
+            //Debug.Log("catclose");
             showWalk = false;
             FadeOutAnimation(walkPrompt.transform);
         }
