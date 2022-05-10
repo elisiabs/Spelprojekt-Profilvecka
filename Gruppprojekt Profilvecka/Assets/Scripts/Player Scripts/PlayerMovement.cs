@@ -119,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jumpable()
     {
         ContactFilter2D contactFilter = new ContactFilter2D();
+        contactFilter.useTriggers = true;
         List<Collider2D> hitColliders = new List<Collider2D>();
         int amountHit = feetCollider.OverlapCollider(contactFilter, hitColliders);
         bool foundPlatform = false;
@@ -127,6 +128,11 @@ public class PlayerMovement : MonoBehaviour
             for (int i = 0; i < hitColliders.Count; i++)
             {
                 if (hitColliders[i].CompareTag("Platform") == true)
+                {
+                    canJump = true;
+                    foundPlatform = true;
+                }
+                else if(hitColliders[i].gameObject.layer == 4) //4 = water
                 {
                     canJump = true;
                     foundPlatform = true;
