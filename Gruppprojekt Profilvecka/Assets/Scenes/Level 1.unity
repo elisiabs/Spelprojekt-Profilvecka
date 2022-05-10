@@ -42014,9 +42014,10 @@ GameObject:
   - component: {fileID: 1061459906}
   - component: {fileID: 1061459905}
   - component: {fileID: 1061459907}
+  - component: {fileID: 1061459908}
   m_Layer: 4
   m_Name: Water
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43897,12 +43898,24 @@ BuoyancyEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_SurfaceLevel: 0
-  m_Density: 32
+  m_Density: 40
   m_LinearDrag: 5
   m_AngularDrag: 5
   m_FlowAngle: 0
   m_FlowMagnitude: 0
   m_FlowVariation: 0
+--- !u!114 &1061459908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061459900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd68b45a86861494eac5db002cc3931a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1115231432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44506,7 +44519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1320245764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50984,11 +50997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.9
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 2922727633577614805, guid: 822aabf37cb2d1a41afdedc8f5ee8011, type: 3}
       propertyPath: m_LocalPosition.z
