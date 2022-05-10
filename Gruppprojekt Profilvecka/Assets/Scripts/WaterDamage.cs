@@ -8,7 +8,6 @@ public class WaterDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("player touch water");
             GameManager.Instance.player.playerHealth.damagePlayer(1);
         }
     }
