@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer[] playerSprites;
     public Image[] hearts;
     public Sprite brokenHeart;
+
+    [SerializeField] UnityEvent OnPlayerDamaged; //This is shit cause it doesn't prevent null errors like I intended it to.
 
     void Start()
     {
@@ -28,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible)
         {
             health -= damage;
+            OnPlayerDamaged.Invoke();
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
             StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
