@@ -41,9 +41,12 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField] private bool hasAttacked = false;
     [SerializeField] private Animator animator;
     [SerializeField] private float chargeSpeedMultiplier;
+    private AudioManager audioManager;
+    private bool firstTime = true;
 
     private void Start()
     {
+        audioManager = GameManager.Instance.audioManager;
         target = GameManager.Instance.player.playerMovement.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -150,9 +153,13 @@ public class EnemyAI : MonoBehaviour {
                 }
                 
             }
-        
-
+            if (spotted && firstTime)
+            {
+                audioManager.Play("Ghost Detect");
+                firstTime = false;
+            }
         }  
+
     }
     IEnumerator attack()
     {

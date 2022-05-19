@@ -21,10 +21,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
-    }
-
-    void Start()
-    {
         audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -39,5 +35,9 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
