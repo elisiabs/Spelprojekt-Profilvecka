@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2456700081640289262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8}
+  m_LocalPosition: {x: 0, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4030356155636882250}
@@ -732,24 +732,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec35153dd96a944f955b56aed3f9a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Shooter1Unlocked: 0
+  Shooter2Unlocked: 0
+  canShoot: 1
   player: {fileID: 2922727633577614807}
   pivotPoint: {fileID: 2922727633502508086}
   bullet: {fileID: 6004742218488493268, guid: 6e20f018c1f422640a7d3d04d16b9b01, type: 3}
   bulletSpawn: {fileID: 2922727633639274083}
-  pushCollider: {fileID: 3213514092486141379}
   backLightSprite: {fileID: 0}
   light: {fileID: 4845889201577635995}
-  movement: {fileID: 2922727633577614794}
   Shooter1: {fileID: 2922727633573157330}
   Shooter2: {fileID: 7068557301942400345}
+  movement: {fileID: 2922727633577614794}
+  pushCollider: {fileID: 3213514092486141379}
   slider: {fileID: 0}
   animator: {fileID: 3784742381821280059}
   playerRb: {fileID: 2922727633577614792}
-  recoilAmount: 12
+  recoilAmount: 60
   bulletVelocity: 70
   cooldownSpeed: 1.2
-  recoilAmount2: 200
-  knockbackAmount: 0
+  recoilAmount2: 150
+  knockbackAmount: 12
 --- !u!95 &3784742381821280059
 Animator:
   serializedVersion: 3
@@ -785,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2922727633573157331
 Transform:
   m_ObjectHideFlags: 0
@@ -946,14 +949,14 @@ MonoBehaviour:
   bodySprite: {fileID: 6045467830226162716}
   leftLegSprite: {fileID: 2922727633184041418}
   rightLegSprite: {fileID: 2922727634572290336}
-  canJump: 0
-  inMenu: 0
   movementSpeed: 1.5
   jumpHeight: 750
   moveSmooth: 0.08
+  jumpBufferTime: 0.25
+  coyoteTime: 0.15
+  canJump: 0
   preventMovementFalloff: 1
   preventGravityFalloff: 0.5
-  jumpBufferTime: 0
   knockbackForce: {x: 0, y: 0}
 --- !u!114 &2922727633577614795
 MonoBehaviour:
@@ -1524,7 +1527,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4568502, y: 0.3167869}
+  m_Offset: {x: 2.1578643, y: 0.316787}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1535,5 +1538,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7095535, y: 1.5916548}
+  m_Size: {x: 4.1585765, y: 2.077273}
   m_EdgeRadius: 0

@@ -8,6 +8,8 @@ public class ShooterScript : MonoBehaviour
     [Header("Unlockables")]
     public bool Shooter1Unlocked = false;
     public bool Shooter2Unlocked = false;
+
+    public bool canShoot = true;
     [Space]
     [Header("Components/GameObjects")]
     [SerializeField] private GameObject player;
@@ -37,6 +39,12 @@ public class ShooterScript : MonoBehaviour
     //Private variables that do not appear in inspector:
     private float cooldown;
     private float angle;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = GameManager.Instance.audioManager;
+    }
 
     // Update is called once per frame
     void Update()
@@ -45,6 +53,7 @@ public class ShooterScript : MonoBehaviour
         SwitchWeapon();
         PlayerInput();
 
+        //The stuff under this text should really not be here...
         if (cooldown < 1)
         {
             cooldown = cooldown + (cooldownSpeed * Time.deltaTime);
@@ -96,6 +105,11 @@ public class ShooterScript : MonoBehaviour
 
     public void PlayerInput()
     {
+        if (Time.timeScale == 0 || !canShoot)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Fire1") && cooldown >= 1 && Shooter1.activeInHierarchy && Shooter1Unlocked)
         {
             GameObject obj = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
@@ -106,6 +120,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Pistol Sound");
         }
         else if (Input.GetButtonDown("Fire2") && cooldown >= 1 && Shooter2.activeInHierarchy && Shooter2Unlocked)
         {
@@ -131,6 +147,8 @@ public class ShooterScript : MonoBehaviour
 
             StartCoroutine(muzzleFlash());
             animator.SetTrigger("Shoot");
+
+            audioManager.Play("Second Gun");
         }
     }
 
@@ -139,5 +157,26 @@ public class ShooterScript : MonoBehaviour
         light.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         light.SetActive(false);
+    }
+
+    public void UnlockWeapon(string whichShooter)
+    {
+        if(whichShooter == "Shooter1") //You will never unlock anything before shooter1.
+        {
+            Shooter1Unlocked = true;
+
+            Shooter1.SetActive(true);
+        }
+        else if(whichShooter == "Shooter2") //You will never unlock shooter2 before shooter1.
+        {
+            Shooter2Unlocked = true;
+
+            Shooter1.SetActive(false);
+            Shooter2.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Incorrect Input for UnlockWeapon method in ShooterScript.cs\nMethod was called from ItemGet.cs");
+        }
     }
 }

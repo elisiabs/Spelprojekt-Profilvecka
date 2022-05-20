@@ -19,9 +19,10 @@ public class FinnishLine : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-
-            playerCam.DetachChildren();
-            playerCam.transform.position = transform.position;
+            Vector3 cameraPos = playerCam.position;
+            playerCam.GetComponent<Animator>().enabled = false;
+            playerCam.SetParent(null);
+            playerCam.position = cameraPos ;
             StartCoroutine(waitLoad());
         }
     }

@@ -17,6 +17,13 @@ public class BulletScript : MonoBehaviour
     {
         if (!collision.isTrigger)
         {
+            
+            EnemyDamageScript enemyDamageScript = collision.GetComponent<EnemyDamageScript>();
+            if(enemyDamageScript != null)
+            {
+                enemyDamageScript.DamageEnemy(1);
+            }
+
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             trail.SetParent(null);
             Destroy(gameObject);
