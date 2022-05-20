@@ -13,8 +13,6 @@ public class PlayerHealth : MonoBehaviour
     public float slowMotionTimeScale = 0.5f;
     public Animator cameraAnimator;
     public SpriteRenderer[] playerSprites;
-    public Image[] hearts;
-    public Sprite brokenHeart;
 
     [SerializeField] UnityEvent OnPlayerDamaged; //This is shit cause it doesn't prevent null errors like I intended it to.
 
@@ -35,28 +33,6 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
             StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
-        }
-
-        switch (health)
-        {
-            case 0:
-                {
-                    //TODO: implement die
-                    Debug.Log("You died.");
-
-                    hearts[0].sprite = brokenHeart;
-                    break;
-                }
-            case 1:
-                {
-                    hearts[1].sprite = brokenHeart;
-                    break;
-                }
-            case 2:
-                {
-                    hearts[2].sprite = brokenHeart;
-                    break;
-                }
         }
     }
 
