@@ -9,7 +9,7 @@ public class HUDHealth : MonoBehaviour
     private GameManager gameManager;
 
     private float currentHealth;
-    public int maxHealth;
+    [SerializeField]public int maxHealth;
     private float lastFrameHealth;
     private float lastHealthDifference;
     private Vector2 rPosition;
@@ -25,6 +25,7 @@ public class HUDHealth : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
+        maxHealth = (int)gameManager.player.playerHealth.health;
         currentHealth = gameManager.player.playerHealth.health;
         parent = gameObject;
 
