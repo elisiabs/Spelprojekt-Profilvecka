@@ -76,7 +76,7 @@ public class Goomba : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.Respawn();
+            //Damage player.
         }
     }
 
