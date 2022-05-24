@@ -49,14 +49,4 @@ public class PauseMenuScript : MonoBehaviour
         shooter.canShoot = true;
 
     }
-
-    public void Menu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
