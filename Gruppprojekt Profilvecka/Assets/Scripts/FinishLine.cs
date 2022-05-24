@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinnishLine : MonoBehaviour
+public class FinishLine : MonoBehaviour
 {
-    [SerializeField] private Transform playerCam;
-    void Start()
+    private Transform playerCam;
+
+    private void Start()
     {
-        
-    }
-    void Update()
-    {
-        
+        playerCam = GameManager.Instance.player.playerHealth.cameraAnimator.gameObject.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
