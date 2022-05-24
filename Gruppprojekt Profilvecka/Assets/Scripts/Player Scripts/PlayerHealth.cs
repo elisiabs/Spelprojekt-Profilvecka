@@ -29,10 +29,10 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible)
         {
             health -= damage;
-            OnPlayerDamaged.Invoke();
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
             StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
+            OnPlayerDamaged.Invoke();
         }
     }
 
