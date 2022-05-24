@@ -74,11 +74,14 @@ public class HUDHealth : MonoBehaviour
 
     public void DamageHearts(int damage)
     {
-        for (int i = hearts.Length - 1; i >= currentHealth - damage; i--)
+        if(hearts != null)
         {
-            Debug.Log("Damaged hearts. i = " + i);
+            for (int i = hearts.Length - 1; i >= currentHealth - damage; i--)
+            {
+                Debug.Log("Damaged hearts. i = " + i);
 
-            hearts[i].sprite = brokenHeartSprite;
+                hearts[i].sprite = brokenHeartSprite;
+            }
         }
     }
 }
