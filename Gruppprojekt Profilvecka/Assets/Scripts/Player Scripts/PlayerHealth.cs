@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator cameraAnimator;
     public SpriteRenderer[] playerSprites;
 
-    [SerializeField] UnityEvent OnPlayerDamaged; //This is shit cause it doesn't prevent null errors like I intended it to.
+    public UnityEvent<int> OnPlayerDamaged;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
             StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
-            OnPlayerDamaged.Invoke();
+            OnPlayerDamaged.Invoke((int)damage);
         }
     }
 
