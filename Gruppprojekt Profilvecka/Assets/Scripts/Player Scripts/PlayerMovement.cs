@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer bodySprite;
     [SerializeField] private SpriteRenderer leftLegSprite;
     [SerializeField] private SpriteRenderer rightLegSprite;
+    [SerializeField] private GameObject parametricLight;
 
     [Header("Variables")]
     [SerializeField] private float movementSpeed;
@@ -48,21 +49,26 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.velocity.y - previousKnockback);
 
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetAxisRaw("Horizontal") > 0) //Walk right
         {
             move = 10;
             animator.SetBool("Walk", true);
             bodySprite.flipX = false;
             leftLegSprite.flipX = false;
             rightLegSprite.flipX = false;
+
+            parametricLight.transform.localPosition = new Vector2(0.128f, 0.508f);
+            //Jaja jag vet att detta ovan är hardcoded men vill du verkligen se ännu en i princip värdelös variabel?
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.GetAxisRaw("Horizontal") < 0) //Walk left
         {
             move = -10;
             animator.SetBool("Walk", true);
             bodySprite.flipX = true;
             leftLegSprite.flipX = true;
             rightLegSprite.flipX = true;
+
+            parametricLight.transform.localPosition = new Vector2(-0.128f, 0.508f);
         }
         else
         {
