@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator bodyAnimator;
     [HideInInspector] public Animator shooterAnimator;
 
-    private void Awake()
+    public void OnEnable()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerHealth = FindObjectOfType<PlayerHealth>();
@@ -18,5 +19,4 @@ public class Player : MonoBehaviour
         bodyAnimator = playerMovement.gameObject.GetComponent<Animator>();
         shooterAnimator = shooterScript.gameObject.GetComponent<Animator>();
     }
-    
 }
