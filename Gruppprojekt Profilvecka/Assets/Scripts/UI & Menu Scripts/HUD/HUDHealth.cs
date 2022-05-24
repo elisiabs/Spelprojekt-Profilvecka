@@ -2,40 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HUDHealth : MonoBehaviour
 {
     private GameManager gameManager;
 
     private float currentHealth;
-    public int maxHealth;
-    [SerializeField] private Vector2 rPosition;
+    [HideInInspector]public int maxHealth;
+    private float lastFrameHealth;
+    private float lastHealthDifference;
     private GameObject parent;
-    
 
     private Image[] hearts;
-    [SerializeField] private Sprite heart;
-    [SerializeField] private Sprite brokenHeart;
+    [SerializeField] private Sprite heartSprite;
+    [SerializeField] private Sprite brokenHeartSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.Instance;
+        maxHealth = (int)gameManager.player.playerHealth.health;
         currentHealth = gameManager.player.playerHealth.health;
+        gameManager.player.playerHealth.OnPlayerDamaged.AddListener(DamageHearts);
         parent = gameObject;
 
-        initializeHearts(maxHealth);
+        hearts = new Image[maxHealth];
+
+        InitializeHearts();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void initializeHearts(int amount)
+    private void InitializeHearts()
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < maxHealth; i++)
         {
             GameObject objToSpawn = new GameObject("Empty");
             GameObject obj = Instantiate(objToSpawn);
@@ -43,21 +43,27 @@ public class HUDHealth : MonoBehaviour
             obj.AddComponent<RectTransform>();
             
             RectTransform rTransform = obj.GetComponent<RectTransform>();
-            rTransform.localScale = new Vector3(1, 1, 1);
-            rTransform.position = rPosition;
             rTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 43.75f);
             rTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 43.75f);
             
             Image image = obj.AddComponent<Image>();
-            image.sprite = heart;
+            image.sprite = heartSprite;
+            hearts[i] = image;
 
-            shit(rTransform);
         }
     }
 
-    IEnumerator shit(RectTransform rTransform)
+    public void DamageHearts(int damage)
     {
-        yield return new WaitForSeconds(0.1f);
-        rTransform.position = rPosition;
+        if(hearts != null)
+        {
+            currentHealth -= damage;
+            for (int i = hearts.Length - 1; i > currentHealth - damage; i--)
+            {
+                Debug.Log("Damaged hearts. i = " + i);
+
+                hearts[i].sprite = brokenHeartSprite;
+            }
+        }
     }
 }

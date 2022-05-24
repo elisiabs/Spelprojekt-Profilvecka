@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public float slowMotionTimeScale = 0.5f;
     public Animator cameraAnimator;
     public SpriteRenderer[] playerSprites;
-    public Image[] hearts;
-    public Sprite brokenHeart;
+
+    public UnityEvent<int> OnPlayerDamaged;
 
     void Start()
     {
@@ -31,28 +32,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvincibilityTime(invincibilityTime));
             StartCoroutine(Attacked(redFlashSeconds));
             StartCoroutine(slowMotion(0.6f)); //TODO: Not hardcode man :/
-        }
-
-        switch (health)
-        {
-            case 0:
-                {
-                    //TODO: implement die
-                    Debug.Log("You died.");
-
-                    hearts[0].sprite = brokenHeart;
-                    break;
-                }
-            case 1:
-                {
-                    hearts[1].sprite = brokenHeart;
-                    break;
-                }
-            case 2:
-                {
-                    hearts[2].sprite = brokenHeart;
-                    break;
-                }
+            OnPlayerDamaged.Invoke((int)damage);
         }
     }
 

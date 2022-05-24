@@ -54,3 +54,8 @@ MonoBehaviour:
     volume: 0.6
     pitch: 3
     Source: {fileID: 0}
+  - name: Ghost Detect
+    ClipSound: {fileID: 8300000, guid: 513e626d4c7e1054588ce257185fdc93, type: 3}
+    volume: 1
+    pitch: 3
+    Source: {fileID: 0}

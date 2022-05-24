@@ -949,6 +949,7 @@ MonoBehaviour:
   bodySprite: {fileID: 6045467830226162716}
   leftLegSprite: {fileID: 2922727633184041418}
   rightLegSprite: {fileID: 2922727634572290336}
+  parametricLight: {fileID: 2791215853421551034}
   movementSpeed: 1.5
   jumpHeight: 750
   moveSmooth: 0.08
@@ -981,11 +982,9 @@ MonoBehaviour:
   - {fileID: 2922727634572290336}
   - {fileID: 2922727633184041418}
   - {fileID: 2922727633463380594}
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  brokenHeart: {fileID: 21300000, guid: 2804a9f1502c1f442903d37c2895299a, type: 3}
+  OnPlayerDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &2922727633577614798
 Animator:
   serializedVersion: 3

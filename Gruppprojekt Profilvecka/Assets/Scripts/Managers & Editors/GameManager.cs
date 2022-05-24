@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Player player;
+    [HideInInspector] public Player player;
     [HideInInspector] public AudioManager audioManager;
 
     public static GameManager Instance;
@@ -21,7 +21,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
+        Time.timeScale = 1;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         audioManager = FindObjectOfType<AudioManager>();
+        player = GetComponent<Player>();
+        player.OnEnable();
     }
 
     public void ReloadScene()

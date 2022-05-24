@@ -63232,65 +63232,6 @@ CompositeCollider2D:
       - {x: 76.999985, y: -67.00004}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!1 &2088255205
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2088255207}
-  - component: {fileID: 2088255206}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2088255206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088255205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d2b90d69e17492429f19a56b5b9632a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Pistol Sound
-    ClipSound: {fileID: 8300000, guid: 0f5fc85f8447e844f9dbae94e1bc194b, type: 3}
-    volume: 1
-    pitch: 3
-    Source: {fileID: 0}
-  - name: Second Gun
-    ClipSound: {fileID: 8300000, guid: c60e4b2ec916fb8409879f879b14a9fa, type: 3}
-    volume: 0.6
-    pitch: 3
-    Source: {fileID: 0}
-  - name: Ghost Detect
-    ClipSound: {fileID: 8300000, guid: 513e626d4c7e1054588ce257185fdc93, type: 3}
-    volume: 1
-    pitch: 3
-    Source: {fileID: 0}
---- !u!4 &2088255207
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088255205}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2108798061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63509,6 +63450,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eec63035c841814491ef4ae906c65c4, type: 3}
+--- !u!1001 &206976934088787173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352839736486876894, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985722316702674548, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f98629d357f1344dbc4d0b2226abcde, type: 3}
 --- !u!1001 &8728233106543189876
 PrefabInstance:
   m_ObjectHideFlags: 0
