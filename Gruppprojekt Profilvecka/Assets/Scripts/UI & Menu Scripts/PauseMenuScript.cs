@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScript : MonoBehaviour
 {
     private ShooterScript shooter;
+    private GameManager gameManager;
     public GameObject EscPauseMenu;
     public GameObject EscPauseButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         shooter = FindObjectOfType<ShooterScript>();
     }
 
@@ -38,7 +40,6 @@ public class PauseMenuScript : MonoBehaviour
         EscPauseButton.SetActive(false);
         EscPauseMenu.SetActive(true);
         shooter.canShoot = false;
-
     }
 
     public void Continue()
@@ -47,6 +48,20 @@ public class PauseMenuScript : MonoBehaviour
         EscPauseMenu.SetActive(false);
         Time.timeScale = 1;
         shooter.canShoot = true;
+    }
 
+    public void LoadMenu()
+    {
+        gameManager.LoadMenu();
+    }
+
+    public void ReloadScene()
+    {
+        gameManager.ReloadScene();
+    }
+
+    public void QuitGame()
+    {
+        gameManager.QuitGame();
     }
 }

@@ -29,21 +29,27 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        audioManager = FindObjectOfType<AudioManager>();
-        player = GetComponent<Player>();
-        player.OnEnable();
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+            player = GetComponent<Player>();
+            player.OnEnable();
+        }
     }
 
     public void ReloadScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadNextScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoadMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void QuitGame()
