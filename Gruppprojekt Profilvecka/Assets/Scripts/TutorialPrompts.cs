@@ -6,6 +6,7 @@ using TMPro;
 
 public class TutorialPrompts : MonoBehaviour
 {
+    [Header("Prompts & stuff")]
     [SerializeField] private CatTutorial cat;
     [SerializeField] private GameObject walkPrompt;
     [SerializeField] private GameObject jumpPrompt;
@@ -16,6 +17,10 @@ public class TutorialPrompts : MonoBehaviour
     [SerializeField] private AnimationClip imageFadeOut;
     [SerializeField] private AnimationClip textFadeIn;
     [SerializeField] private AnimationClip textFadeOut;
+    [Header("HUD")]
+    [SerializeField] private GameObject HUDHealth;
+    [SerializeField] private GameObject HUDCooldown;
+    [SerializeField] private GameObject HUDProgress;
 
     private ShooterScript shooterScript;
     private bool catClose = false;
@@ -63,6 +68,7 @@ public class TutorialPrompts : MonoBehaviour
                 if (showJump)
                 {
                     FadeInAnimation(jumpPrompt.transform);
+                    
                     showJump = false;
                 }
                 break;
@@ -72,6 +78,7 @@ public class TutorialPrompts : MonoBehaviour
             case 3:
                 if (showJump)
                 {
+                    HUDHealth.SetActive(true);
                     FadeOutAnimation(jumpPrompt.transform);
                     showJump=false;
                 }
@@ -82,9 +89,11 @@ public class TutorialPrompts : MonoBehaviour
         {
             if (shooterScript.Shooter1Unlocked)
             {
+                HUDCooldown.SetActive(true);
                 FadeInAnimation(aimPrompt.transform);
                 StartCoroutine(hideAim(3f));
                 showAim = false;
+                StartCoroutine(showProgress(8));
             }
         }
 
@@ -108,6 +117,12 @@ public class TutorialPrompts : MonoBehaviour
         yield return new WaitForSeconds(1);
         shooterScript.canShoot = true;
         FadeInAnimation(shooter1Prompt.transform);
+    }
+
+    IEnumerator showProgress (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        HUDProgress.SetActive(true);
     }
     
     private void FadeInAnimation(Transform parent)
